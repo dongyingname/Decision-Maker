@@ -10,58 +10,61 @@
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
 </body>
+<style>
+textarea{
+  display:block;
+}
+
+</style>
 <script>
   // createTweetElement take data(object) and construct DOM structure
   // 
-function createTweetElement(data) {
+function createDecision(data) {
 
-const $section_decisions = $("<section>").addClass("section_decisions");
-const $div_decision = $("<div>").addClass("div_decision");
-const $button_edit = $("<button>").attr("innerText","Edit").addClass("button_edit");
-const $button_delete = $("<button>").attr("innerText","Delete").addClass("button_delete");
+const $decision = $("<textarea>").attr("placeholder","decision").addClass("decision");
+// const $div_decision = $("<div>").addClass("div_decision");
+// const $button_edit = $("<button>").attr("innerText","Edit").addClass("button_edit");
+// const $button_delete = $("<button>").attr("innerText","Delete").addClass("button_delete");
 
-
-$div_decision.append($button_edit,$button_delete);
 // $section_decisions.append($div_decision);
 
-return $div_decision;
+return $decision;
 }
-function append(div){
-  $(".section_decisions").append(div);
+function append(textarea){
+  $("#form").append(textarea);
 }
 $(document).ready(function () {
-  console.log($(".button_delete"));
-$("#add").on("click",function (event) {
-        append(createTweetElement());
+  console.log("docunent ready");
+  $("#add").on("click",function (event) {
+        append(createDecision());
     });
 });
-
-
 </script>
 </head>
 
 <body>
   <section>
     <h2>Create Your Own Decision Poll</h2>
-    <form method="POST" action="/poll/:id">
-      <textarea id="title" placeholder="Title?"></textarea>
+    <form id='form' method="POST" action="/poll/:id">
+      <textarea id="title" placeholder="Title"></textarea>
       <textarea id="description" placeholder="Description"></textarea>
-      <textarea id="decision" placeholder="Decision"></textarea>
-      
-      <input class="click" type="submit" value="Create">
+      <textarea id="question" placeholder="question"></textarea>
+      <textarea class="decision" placeholder="decision"></textarea>
+
+      <input class="click" type="submit" value="Send Data">
     </form>
     <button id="add">Add</button>
   </section>
-  <section class="section_decisions">
-      <div class="div_decision">Dance<Button class="button_edit">Edit</Button><Button class="button_delete">Delete</Button></div>
-      <div class="div_decision">Sing<Button class="button_edit">Edit</Button><Button class="button_delete">Delete</Button></div>
-      <div class="div_decision">Wave<Button class="button_edit">Edit</Button><Button class="button_delete">Delete</Button></div>
-      <div class="div_decision">Jump<Button class="button_edit">Edit</Button><Button class="button_delete">Delete</Button></div>
-      <div class="div_decision">Climb<Button class="button_edit">Edit</Button><Button class="button_delete">Delete</Button></div>
-      <div class="div_decision">Sleep<Button class="button_edit">Edit</Button><Button class="button_delete">Delete</Button></div>
-    
-    <div class="div_decision">Decision 1<Button class="button_edit">Edit</Button><Button class="button_delete">Delete</Button></div>
-  </section>
+  <!-- <section class="section_decisions">
+    <div class="div_decision">Dance<Button class="button_edit">Edit</Button><Button class="button_delete">Delete</Button></div>
+    <div class="div_decision">Sing<Button class="button_edit">Edit</Button><Button class="button_delete">Delete</Button></div>
+    <div class="div_decision">Wave<Button class="button_edit">Edit</Button><Button class="button_delete">Delete</Button></div>
+    <div class="div_decision">Jump<Button class="button_edit">Edit</Button><Button class="button_delete">Delete</Button></div>
+    <div class="div_decision">Climb<Button class="button_edit">Edit</Button><Button class="button_delete">Delete</Button></div>
+    <div class="div_decision">Sleep<Button class="button_edit">Edit</Button><Button class="button_delete">Delete</Button></div>
+    <div class="div_decision">Bend<Button class="button_edit">Edit</Button><Button class="button_delete">Delete</Button></div>
+  </section> -->
+  <!-- <button id="send">Send to server!!!!</button> -->
 </body>
 </body>
 
