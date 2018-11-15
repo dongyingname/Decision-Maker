@@ -20,7 +20,7 @@
   font-family: Open sans, Arial;
   font-weight: 300;
   font-size: 4em;
-  color: white;
+  color: black;
   letter-spacing: 5px;
   border-radius: 3px;
   background: linear-gradient(100deg, #7423b2, #1967c6);
@@ -28,6 +28,7 @@
   animation: BackgroundGradient 20s ease infinite;
 }
 .create {
+  color: black;
   background-color: #8A2BE2;
   border-width: 0px;
   border-style: solid;
