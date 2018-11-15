@@ -9,37 +9,14 @@
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
 </body>
 <style>
-textarea{
+  textarea{
   display:block;
 }
-
 </style>
-<script>
-  // createTweetElement take data(object) and construct DOM structure
-  // 
-function createDecision(data) {
 
-const $decision = $("<textarea>").attr("placeholder","decision").addClass("decision");
-// const $div_decision = $("<div>").addClass("div_decision");
-// const $button_edit = $("<button>").attr("innerText","Edit").addClass("button_edit");
-// const $button_delete = $("<button>").attr("innerText","Delete").addClass("button_delete");
-
-// $section_decisions.append($div_decision);
-
-return $decision;
-}
-function append(textarea){
-  $("#form").append(textarea);
-}
-$(document).ready(function () {
-  console.log("docunent ready");
-  $("#add").on("click",function (event) {
-        append(createDecision());
-    });
-});
-</script>
 </head>
 
 <body>
