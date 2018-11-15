@@ -36,6 +36,9 @@
   left: 50%;
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
+  background: linear-gradient(100deg, #7423b2, #1967c6);
+  background-size: 400% 400%;
+  animation: BackgroundGradient 20s ease infinite;
 }
 
 
