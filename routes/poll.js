@@ -16,7 +16,7 @@ module.exports = (knex) => {
 
   // welcome page
  router.get("/", (req, res) => {
-   res.render("index.ejs");
+   res.render("sub.ejs");
  });
 
  // create new poll link

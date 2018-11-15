@@ -33,7 +33,7 @@ $(document).ready(function () {
 
   for (let i = 0; i < arr.length; i++) {
     let dec = arr[i].decision;
-    let $decision = $("<div>").addClass("decision");
+    let $decision = $("<li>").addClass("decision");
     $decision.text(dec);
     $('#data').append($decision);
   }
