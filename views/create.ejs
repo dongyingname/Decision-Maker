@@ -6,9 +6,31 @@
     <% include partials/_header %>
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="layout.css" type="text/css" />
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
 </body> 
+<script>
+  // createTweetElement take data(object) and construct DOM structure
+  // 
+function createTweetElement(data) {
+
+const $section_decisions = $("<section>").addClass("section_decisions");
+const $div_decision = $("<div>").addClass("div_decision");
+const $button_edit = $("<button>").addClass("button_edit");
+const $button_delete = $("<button>").addClass("button_delete");
+
+$image.attr('src', data.user.avatars.small);
+$div1.text(data.user.name);
+$div2.text(data.user.handle);
+$div3.text(data.content.text);
+
+
+
+
+return $tweet;
+}
+
+
+</script>
 </head>
 
   <section>
@@ -16,11 +38,15 @@
     <form  method="POST" action="/tweets/">
       <textarea  id ="title" placeholder="Title?"></textarea>
       <textarea  id="description" placeholder="Description"></textarea>
-      <textarea  id= "decision" placeholder="Decision"></textarea>
+      <textarea  id="decision" placeholder="Decision"></textarea>
       <button>Add</button>
       <input class="click" type="submit" value="Create">
-    
     </form>
+  </section>
+  <section class="section_decisions">
+    <div class="div_decision">Decision 1<Button class="button_edit">Edit</Button><Button class="button_delete">Delete</Button></div> 
+    
+    
   </section>
 
   </body>
