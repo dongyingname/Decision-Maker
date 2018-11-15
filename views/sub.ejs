@@ -1,30 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Decision Maker: Home Page</title>
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/layout.css" type="text/css" />
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <body>
-        <import src='header.html'/>
-    </body> 
+
+<head>
+  <title>Decision Maker: Home Page</title>
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/sub.js"></script>
+  <style>
+    .decision {
+      position: absolute;
+      z-index: 9;
+      top: 49%;
+      background-color: #f1f1f1;
+      border: 1px solid #d3d3d3;
+      text-align: center;
+      display:block;
+    }
+
+  </style>
+
+<body>
+  <import src='header.html' />
+</body>
 </head>
 
-  <section>
-    <h2>Here Are the Decision You Made</h2>
-    <div>Description: These activities are pretty awesome</div>
-   <div>Dance</div>
-   <section>
-       <h1>Here is the ranking</h1>
-   <div>Sing</div>
-   <div>Sit</div>
-   <div>Run</div>
-   <div>Wave</div>
-   <div>Greet</div> <div>Dance</div>
-   <div>Bounce</div>
-</section>
-  </section>
+<section>
+  <h2>Here Are the Decision You Made</h2>
+  <div>Description: These activities are pretty awesome</div>
+  
+  <section id="data">
+    <h1>Here is the ranking</h1>
+    <div class="decision">dance</div>
+    <div class="decision">sing</div>
+    <div class="decision">ha</div>
+    <div class="decision">wave</div>
 
+  </section>
+  <button id="sub">Submit</button>
   </body>
+
 </html>
