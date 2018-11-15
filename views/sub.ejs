@@ -8,11 +8,15 @@
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/sub.js"></script>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
-
+  <script src="//rubaxa.github.io/Sortable/Sortable.js"></script>
 
   <style>
-    body {
+    html {
+      margin: 20px 20px 20px 20px;
+    }
+div {
       margin: 10px;
+      font-size: 20px;
     }
 
     .glyphicon-move {
@@ -22,24 +26,30 @@
 
   </style>
 
-<body>
-  <import src='header.html' />
-</body>
+
+
 </head>
 
 <section>
   <h2>Here Are the Decision You Made</h2>
   <div>Description: These activities are pretty awesome</div>
 
-  <section id="data">
+  <div id="data">
     <h1>Here is the ranking</h1>
     <div class="decision">dance</div>
     <div class="decision">sing</div>
     <div class="decision">ha</div>
     <div class="decision">wave</div>
-
-  </section>
-  <button id="sub">Submit</button>
-  </body>
+  </div>
+  <div id="option">
+      <h1>Put Into Here to Rank</h1>
+      <div class="decision">alalala</div>
+      <div class="decision">guagua</div>
+      <div class="decision">comeon</div>
+      
+    </div>
+</section>
+<button id="sub">Submit</button>
+</body>
 
 </html>

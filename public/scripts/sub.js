@@ -38,10 +38,24 @@ $(document).ready(function () {
     let $decision = $("<div>").addClass("decision");
     // console.log($("#ha"));
 
-    let el = document.getElementsByClassName('decision');
-    Sortable.create(el);
+
     $decision.text(dec);
     console.log($decision);
     $('#data').append($decision);
   }
-})
+
+  const foo = document.getElementById("data");
+  const bar = document.getElementById("option");
+  Sortable.create(foo, {
+    group: 'foo',
+    animation: 100
+  });
+
+  Sortable.create(bar, {
+    group: {
+      name: 'bar',
+      put: ['foo']
+    },
+    animation: 100
+  });
+});
