@@ -30,18 +30,26 @@ const arr = [{
 ];
 
 $(document).ready(function () {
-  //   console.log($("#data"));
-  for (let i = 0; i < arr.length; i++) {
-    // console.log(i);
-    let dec = arr[i].decision;
-    // let points = arr[i].points;
-    let $decision = $("<div>").addClass("decision");
-    // console.log($("#ha"));
 
-    let el = document.getElementsByClassName('decision');
-    Sortable.create(el);
+  for (let i = 0; i < arr.length; i++) {
+    let dec = arr[i].decision;
+    let $decision = $("<div>").addClass("decision");
     $decision.text(dec);
-    console.log($decision);
     $('#data').append($decision);
   }
-})
+
+  const foo = document.getElementById("data");
+  const bar = document.getElementById("option");
+  Sortable.create(foo, {
+    group: 'foo',
+    animation: 100
+  });
+
+  Sortable.create(bar, {
+    group: {
+      name: 'bar',
+      put: ['foo']
+    },
+    animation: 100
+  });
+});
