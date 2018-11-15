@@ -39,30 +39,31 @@ app.use(express.static("public"));
 app.use("/api/users", usersRoutes(knex));
 
    // welcome page
-  router.get("/", (req, res) => {
+  app.get("/", (req, res) => {
     res.render("index.ejs")
   });
 
   // create new poll link
-  router.get("posts/create", (req, res) => {
+  app.get("posts/create", (req, res) => {
     res.render("create.ejs")
   });
 
   // display links
-  router.get("poll/:id", (req, res) => {
+  app.get("poll/:id", (req, res) => {
     res.render("links.ejs")
   });
 
   // admin page
-  router.get("admin/poll/:id", (req, res) => {
+  app.get("admin/poll/:id", (req, res) => {
     res.render("admin.ejs")
   })
 
   // sub page
-  router.get("sub/poll:id", (req, res) => {
+  app.get("sub/poll:id", (req, res) => {
     res.render("sub.ejs")
   })
 
+  //
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
