@@ -1,4 +1,8 @@
 node_modules/
+<<<<<<< HEAD
+=======
+
+>>>>>>> furtherpages
 .env
 *.log
 *.sqlite3

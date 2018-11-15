@@ -38,6 +38,8 @@ $(document).ready(function () {
     let $decision = $("<div>").addClass("decision");
     // console.log($("#ha"));
 
+    let el = document.getElementsByClassName('decision');
+    Sortable.create(el);
     $decision.text(dec);
     console.log($decision);
     $('#data').append($decision);
