@@ -25,12 +25,13 @@
   <section>
     <h2>Create Your Own Decision Poll</h2>
     <form id='form' method="POST" action="/poll/:id">
-      <textarea id="email" placeholder="Your Email"></textarea>
-      <textarea id="title" placeholder="Title of This Poll"></textarea>
-      <textarea id="description" placeholder="Description(Optional)"></textarea>
-      <textarea id="question" placeholder="question"></textarea>
-      <textarea class="decision" placeholder="decision"></textarea>
-
+      <textarea id="email" name="email" placeholder="Your Email"></textarea>
+      <textarea id="poll_title" name="poll_title" placeholder="Title of This Poll"></textarea>
+      <textarea id="description" name="description" placeholder="Description(Optional)"></textarea>
+      <ol id="decisions">
+        <li><textarea class="decision" name="decision" placeholder="decision"></textarea></li>
+        <li><textarea class="decision" name="decision" placeholder="decision"></textarea></li>
+      </ol>
       <input class="click" type="submit" value="Send Data">
     </form>
     <button id="add">Add</button>

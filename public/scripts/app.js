@@ -1,12 +1,12 @@
 
   function createDecision(data) {
 
-    const $decision = $("<textarea>").attr("placeholder", "decision").addClass("decision");
+    const $decision = $("<textarea>").attr("name", "decision").attr("placeholder", "decision").addClass("decision");
     return $decision;
   }
 
   function append(textarea) {
-    $("#form").append(textarea);
+    $("#decisions").append(textarea);
   }
   $(document).ready(function () {
     console.log("docunent ready");
