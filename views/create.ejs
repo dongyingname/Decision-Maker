@@ -14,6 +14,8 @@
 <style>
   textarea{
   display:block;
+  margin-bottom: 20px;
+  width:250px;
 }
 </style>
 
@@ -23,8 +25,9 @@
   <section>
     <h2>Create Your Own Decision Poll</h2>
     <form id='form' method="POST" action="/poll/:id">
-      <textarea id="title" placeholder="Title"></textarea>
-      <textarea id="description" placeholder="Description"></textarea>
+      <textarea id="email" placeholder="Your Email"></textarea>
+      <textarea id="title" placeholder="Title of This Poll"></textarea>
+      <textarea id="description" placeholder="Description(Optional)"></textarea>
       <textarea id="question" placeholder="question"></textarea>
       <textarea class="decision" placeholder="decision"></textarea>
 
