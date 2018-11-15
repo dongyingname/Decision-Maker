@@ -2,12 +2,12 @@
 //Doesn't need a input. Create a textarea DOM element and return this element
   function createDecision(data) {
 
-    const $decision = $("<textarea>").attr("placeholder", "decision").addClass("decision");
+    const $decision = $("<textarea>").attr("name", "decision").attr("placeholder", "decision").addClass("decision");
     return $decision;
   }
 //Take a DOM element and append it to a parent container #form
   function append(textarea) {
-    $("#form").append(textarea);
+    $("#decisions").append(textarea);
   }
 
   //When DOM elements are loaded, alert in console "document ready"
