@@ -44,7 +44,7 @@ app.use("/api/users", usersRoutes(knex));
   });
 
   // create new poll link
-  app.get("poll/create", (req, res) => {
+  app.get("/poll/create", (req, res) => {
     res.render("create.ejs")
   });
 
