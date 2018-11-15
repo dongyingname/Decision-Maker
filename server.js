@@ -38,14 +38,31 @@ app.use(express.static("public"));
 // Mount all resource routes
 app.use("/api/users", usersRoutes(knex));
 
-// Home page
-app.get("/", (req, res) => {
-  res.render("index");
-});
+   // welcome page
+  router.get("/", (req, res) => {
+    res.render("index.ejs")
+  });
 
-app.get("/poll/create", (req, res) => {
-  res.render("create");
-});
+  // create new poll link
+  router.get("posts/create", (req, res) => {
+    res.render("create.ejs")
+  });
+
+  // display links
+  router.get("poll/:id", (req, res) => {
+    res.render("links.ejs")
+  });
+
+  // admin page
+  router.get("admin/poll/:id", (req, res) => {
+    res.render("admin.ejs")
+  })
+
+  // sub page
+  router.get("sub/poll:id", (req, res) => {
+    res.render("sub.ejs")
+  })
+
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
