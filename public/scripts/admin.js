@@ -1,44 +1,44 @@
 "use strict";
-// const arr = [{
-//     "name": "dance",
-//     "value": 20
-//   },
-//   {
-//     "name": "sing",
-//     "value": 17
-//   },
-//   {
-//     "name": "gliding",
-//     "value": 9
-//   },
-//   {
-//     "name": "swimming",
-//     "value": 30
-//   },
-//   {
-//     "name": "running",
-//     "value": 50
-//   },
-//   {
-//     "name": "games",
-//     "value": 7
-//   },
-//   {
-//     "name": "rockClimbing",
-//     "value": 9
-//   }
-// ];
+const arr = [{
+    "name": "dance",
+    "value": 20
+  },
+  {
+    "name": "sing",
+    "value": 17
+  },
+  {
+    "name": "gliding",
+    "value": 9
+  },
+  {
+    "name": "swimming",
+    "value": 30
+  },
+  {
+    "name": "running",
+    "value": 50
+  },
+  {
+    "name": "games",
+    "value": 7
+  },
+  {
+    "name": "rockClimbing",
+    "value": 9
+  }
+];
 
 function createChart(data) {
   var labelsArr = [];
   var dataArr = [];
   for (let i = 0; i < data.length; i++) {
-    labelsArr.push(data[i].name)
-    dataArr.push(data[i].value)
+    labelsArr.push(data[i].name);
+    dataArr.push(data[i].value);
   }
 
   let myChart = document.getElementById("myChart").getContext("2d");
-  var pollChart = new Chart(myChart, {
+  const pollChart = new Chart(myChart, {
     type: 'doughnut',
     data: {
       labels: labelsArr,
@@ -63,7 +63,7 @@ function createChart(data) {
     options: {
       title:{
         display:true,
-        text:'Current Poll Results',
+        text:'Results',
         fontSize: 25
       },
       animation:{
@@ -76,12 +76,5 @@ function createChart(data) {
       }
     }
   });
-return pollChart
+return pollChart;
 }
-
-$(document).ready(function() {
-createChart(arr)
-})
-
-
-

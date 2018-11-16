@@ -16,7 +16,7 @@ module.exports = (knex) => {
 
   // welcome page
  router.get("/", (req, res) => {
-   res.render("index.ejs");
+   res.render("admin");
  });
 
  // create new poll link
@@ -27,11 +27,6 @@ module.exports = (knex) => {
  // display links
  router.get("/poll/:id", (req, res) => {
    res.render("links.ejs");
- });
-
- // admin page
- router.get("/admin/poll/:id", (req, res) => {
-   res.render("admin.ejs");
  });
 
  // sub page
