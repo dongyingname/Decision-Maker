@@ -35,7 +35,7 @@ module.exports = (knex) => {
  });
 
  // sub page
- router.get("/sub/poll:id", (req, res) => {
+ router.get("/sub/poll/:id", (req, res) => {
    res.render("sub.ejs");
  });
 
