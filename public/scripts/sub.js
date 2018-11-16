@@ -31,16 +31,7 @@
 // ];
 
 $(document).ready(function () {
-
-  for (let i = 0; i < optionsData.length; i++) {
-    let name = optionsData[i].name;
-    let $listItem = $("<li>").addClass("listItem");
-    $listItem.text(name);
-    $('#dataItems').append($listItem);
-  }
-
   const foo = document.getElementById("dataItems");
-
   Sortable.create(foo, {
     group: 'foo',
     animation: 100,
