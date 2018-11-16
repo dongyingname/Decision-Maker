@@ -42,27 +42,29 @@ module.exports = (knex) => {
   router.get("/sub/poll/:id", (req, res) => {
     const id1 = req.params.id;
     const decisions = [];
-    const templateVars = {decisions:decisions};
-    knex.select('poll_id', 'name', 'value').from('option').where({poll_id:id1})
-    .returning(['poll_id', 'name', 'value' ])
-      .then((option) => {
-        console.log(option);
-        for (let i = 0; i < option.length; i++) {
-          decisions.push(option[i].name);
-          console.log(decisions);
-        }
+
+    knex.select('poll_id', 'name', 'value').from('option').where({
+        poll_id: id1
       })
-      .then(function(){
-        res.render("sub.ejs",templateVars);
+      .returning(['poll_id', 'name', 'value'])
+
+      .then((option) => {
+        // console.log(option[1].name);
+        return Promise.all(
+          option.map(function (decision) {
+            decisions.push(decision.name);
+          })
+        );
+      })
+      .then(function () {
+        const templateVars = {
+          decisions: decisions
+        };
+        console.log(decisions);
+        res.render("sub.ejs", templateVars);
       })
       .catch(err => console.log('ERROR', err));
 
-
-
-
-
-
-    res.render("sub.ejs");
   });
 
   // sending data to db for new poll
