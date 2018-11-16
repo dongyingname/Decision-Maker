@@ -1,5 +1,11 @@
+@keyframes BackgroundGradient {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
 body {
   background-color: #666666;
+  text-align: center;
 }
 .details {
   margin-left: 20px;
@@ -28,6 +34,10 @@ body {
   margin-right: 1px;
   padding: 5px 10px;
 }
+.sortable-chosen {
+  background: linear-gradient(100deg, #7423b2, #1967c6);
+  animation: BackgroundGradient 20s ease infinite;
+}
 #dataItems {
   padding: 0px;
   margin-bottom: 0;
@@ -46,10 +56,3 @@ body {
 #sub {
   margin-left: 22px;
 }
-
-
-
-
-
-
-
