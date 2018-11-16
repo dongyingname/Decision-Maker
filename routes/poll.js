@@ -16,7 +16,7 @@ module.exports = (knex) => {
 
   // welcome page
  router.get("/", (req, res) => {
-   res.render("index.ejs");
+   res.render("sub.ejs");
  });
 
  // create new poll link
@@ -39,6 +39,7 @@ module.exports = (knex) => {
    res.render("sub.ejs");
  });
 
+ // sending data to db for new poll
  router.post("/poll/:id", (req, res) => {
    knex('owner').insert({ email: req.body.email }).returning(['id'])
    .then((user) => {
@@ -51,8 +52,8 @@ module.exports = (knex) => {
      })
      .then((poll)  => {
        return Promise.all(
-         req.body.decision.map(function (decision) {
-           knex('option').insert({
+        req.body.decision.map(function (decision) {
+           return knex('option').insert({
              poll_id: poll[0].id,
              name: decision
            });
