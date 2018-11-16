@@ -1,53 +1,50 @@
 "use strict";
-const arr = [{
-    "name": "dance",
-    "value": 20
-  },
-  {
-    "name": "sing",
-    "value": 17
-  },
-  {
-    "name": "run",
-    "value": 9
-  },
-  {
-    "name": "wave",
-    "value": 30
-  },
-  {
-    "name": "jump",
-    "value": 21
-  },
-  {
-    "name": "sit",
-    "value": 2
-  },
-  {
-    "name": "shoot",
-    "value": 9
+// const arr = [{
+//     "name": "dance",
+//     "value": 20
+//   },
+//   {
+//     "name": "sing",
+//     "value": 17
+//   },
+//   {
+//     "name": "gliding",
+//     "value": 9
+//   },
+//   {
+//     "name": "swimming",
+//     "value": 30
+//   },
+//   {
+//     "name": "running",
+//     "value": 50
+//   },
+//   {
+//     "name": "games",
+//     "value": 7
+//   },
+//   {
+//     "name": "rockClimbing",
+//     "value": 9
+//   }
+// ];
+
+function createChart(data) {
+  var labelsArr = [];
+  var dataArr = [];
+  for (let i = 0; i < data.length; i++) {
+    labelsArr.push(data[i].name)
+    dataArr.push(data[i].value)
   }
-];
 
-
-
-
-
-$(document).ready(function() {
   let myChart = document.getElementById("myChart").getContext("2d");
-
-  let massPopChart = new Chart(myChart, {
+  var pollChart = new Chart(myChart, {
     type: 'doughnut',
     data: {
-      labels: ['rock-climbing', 'hunting', 'soccer', 'spelunking'],
+      labels: labelsArr,
       datasets: [{
         label:'value',
-        data: [
-          5,
-          12,
-          5,
-          10
-        ],
+        data: dataArr,
         backgroundColor:[
           '#e6beff',
           '#9a6324',
@@ -79,17 +76,12 @@ $(document).ready(function() {
       }
     }
   });
-});
+return pollChart
+}
 
+$(document).ready(function() {
+createChart(arr)
+})
 
-// $(document).ready(function () {
-  // for (let i = 0; i < arr.length; i++) {
-  //   let name = arr[i].name;
-  //   let $decision = $("<div>").addClass("decision");
-
-  //   $decision.text(name);
-  //   $('#data').append($decision);
-  // }
-// });
 
 
