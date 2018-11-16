@@ -27,10 +27,10 @@ module.exports = (knex) => {
   // display links
   router.get("/poll/:id", (req, res) => {
     let templateVars = {
-      id:req.params.id
-  };
-  //  console.log(templateVars);
-    res.render("links.ejs",templateVars);
+      id: req.params.id
+    };
+    //  console.log(templateVars);
+    res.render("links.ejs", templateVars);
   });
 
   // admin page
@@ -40,6 +40,28 @@ module.exports = (knex) => {
 
   // sub page
   router.get("/sub/poll/:id", (req, res) => {
+    const id1 = req.params.id;
+    const decisions = [];
+    const templateVars = {decisions:decisions};
+    knex.select('poll_id', 'name', 'value').from('option').where({poll_id:id1})
+    .returning(['poll_id', 'name', 'value' ])
+      .then((option) => {
+        console.log(option);
+        for (let i = 0; i < option.length; i++) {
+          decisions.push(option[i].name);
+          console.log(decisions);
+        }
+      })
+      .then(function(){
+        res.render("sub.ejs",templateVars);
+      })
+      .catch(err => console.log('ERROR', err));
+
+
+
+
+
+
     res.render("sub.ejs");
   });
 
