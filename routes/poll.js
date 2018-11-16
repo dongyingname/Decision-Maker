@@ -59,7 +59,7 @@ module.exports = (knex) => {
          })
        )
        .then(function() {
-         res.redirect('/');
+         res.redirect('/poll/:id');
        })
      .catch(err => console.log('ERROR', err));
    });
