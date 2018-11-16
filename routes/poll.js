@@ -47,9 +47,7 @@ module.exports = (knex) => {
         poll_id: id1
       })
       .returning(['poll_id', 'name', 'value'])
-
       .then((option) => {
-        // console.log(option[1].name);
         return Promise.all(
           option.map(function (decision) {
             decisions.push(decision.name);
