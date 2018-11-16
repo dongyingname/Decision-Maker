@@ -14,7 +14,6 @@ module.exports = (knex) => {
     knex.select('poll_id', 'name', 'value').from('option').where({
         poll_id: id1
       })
-      .returning(['poll_id', 'name', 'value'])
       .then((option) => {
         return Promise.all(
           option.map(function (decision) {
