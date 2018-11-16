@@ -1,45 +1,95 @@
 "use strict";
 const arr = [{
-    "decision": "dance",
-    "points": 20
+    "name": "dance",
+    "value": 20
   },
   {
-    "decision": "sing",
-    "points": 17
+    "name": "sing",
+    "value": 17
   },
   {
-    "decision": "run",
-    "points": 9
+    "name": "run",
+    "value": 9
   },
   {
-    "decision": "wave",
-    "points": 30
+    "name": "wave",
+    "value": 30
   },
   {
-    "decision": "jump",
-    "points": 21
+    "name": "jump",
+    "value": 21
   },
   {
-    "decision": "sit",
-    "points": 2
+    "name": "sit",
+    "value": 2
   },
   {
-    "decision": "shoot",
-    "points": 9
+    "name": "shoot",
+    "value": 9
   }
 ];
 
-$(document).ready(function () {
-  //   console.log($("#data"));
-  for (let i = 0; i < arr.length; i++) {
-    // console.log(i);
-    let dec = arr[i].decision;
-    // let points = arr[i].points;
-    let $decision = $("<div>").addClass("decision");
-    // console.log($("#ha"));
 
-    $decision.text(dec);
-    console.log($decision);
-    $('#data').append($decision);
-  }
-})
+
+
+
+$(document).ready(function() {
+  let myChart = document.getElementById("myChart").getContext("2d");
+
+  let massPopChart = new Chart(myChart, {
+    type: 'doughnut',
+    data: {
+      labels: ['rock-climbing', 'hunting', 'soccer', 'spelunking'],
+      datasets: [{
+        label:'value',
+        data: [
+          5,
+          12,
+          5,
+          10
+        ],
+        backgroundColor:[
+          '#e6beff',
+          '#9a6324',
+          '#fffac8',
+          '#800000',
+          '#aaffc3',
+          '#808000',
+          '#ffd8b1',
+          '#000075',
+          '#808080',
+          '#ffffff',
+          '#000000'
+        ],
+      }]
+    },
+    options: {
+      title:{
+        display:true,
+        text:'Current Poll Results',
+        fontSize: 25
+      },
+      animation:{
+        duration: 2000
+      },
+      legend:{
+        labels:{
+          fontSize: 17
+        }
+      }
+    }
+  });
+});
+
+
+// $(document).ready(function () {
+  // for (let i = 0; i < arr.length; i++) {
+  //   let name = arr[i].name;
+  //   let $decision = $("<div>").addClass("decision");
+
+  //   $decision.text(name);
+  //   $('#data').append($decision);
+  // }
+// });
+
+
