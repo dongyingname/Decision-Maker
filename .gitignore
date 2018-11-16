@@ -1,8 +1,5 @@
 node_modules/
-<<<<<<< HEAD
-=======
-
->>>>>>> furtherpages
+.DS_store
 .env
 *.log
 *.sqlite3

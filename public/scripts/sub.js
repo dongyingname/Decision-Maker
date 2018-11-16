@@ -1,45 +1,45 @@
 "use strict";
-const arr = [{
-    "decision": "dance",
-    "points": 20
+const optionsData = [{
+    "name": "dance",
+    "value": 20
   },
   {
-    "decision": "sing",
-    "points": 17
+    "name": "sing",
+    "value": 17
   },
   {
-    "decision": "run",
-    "points": 9
+    "name": "run",
+    "value": 9
   },
   {
-    "decision": "wave",
-    "points": 30
+    "name": "wave",
+    "value": 30
   },
   {
-    "decision": "jump",
-    "points": 21
+    "name": "jump",
+    "value": 21
   },
   {
-    "decision": "sit",
-    "points": 2
+    "name": "sit",
+    "value": 2
   },
   {
-    "decision": "shoot",
-    "points": 9
+    "name": "shoot",
+    "value": 9
   }
 ];
 
 $(document).ready(function () {
 
-  for (let i = 0; i < arr.length; i++) {
-    let dec = arr[i].decision;
-    let $decision = $("<li>").addClass("decision");
-    $decision.text(dec);
-    $('#data').append($decision);
+  for (let i = 0; i < optionsData.length; i++) {
+    let name = optionsData[i].name;
+    let $listItem = $("<li>").addClass("listItem");
+    $listItem.text(name);
+    $('#data').append($listItem);
   }
 
-  const foo = document.getElementById("data");
-  const bar = document.getElementById("option");
+  const foo = document.getElementById("dataItems");
+  const bar = document.getElementById("optionItems");
   Sortable.create(foo, {
     group: 'foo',
     animation: 100
@@ -48,7 +48,6 @@ $(document).ready(function () {
   Sortable.create(bar, {
     group: {
       name: 'bar',
-      put: ['foo']
     },
     animation: 100
   });
