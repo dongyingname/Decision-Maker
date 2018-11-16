@@ -2,6 +2,8 @@ textarea {
   display:block;
   margin-bottom: 20px;
   width:250px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 body {
@@ -16,9 +18,18 @@ section {
 .head {
   margin-left: 20px;
 }
-.click {
-  float: left;
+
+#add .click {
+  display: inline-block;
 }
-#add {
-  float: left;
+html {
+  text-align: center;
+}
+ol {
+  text-align: center;
+  list-style-position: inner;
+  margin-left: 5px;
+  list-style-type: none;
+  margin-right: auto;
+  padding-left: 0;
 }

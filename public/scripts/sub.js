@@ -40,16 +40,11 @@ $(document).ready(function () {
   }
 
   const foo = document.getElementById("dataItems");
-  const bar = document.getElementById("optionItems");
+
   Sortable.create(foo, {
     group: 'foo',
-    animation: 100
+    animation: 100,
+    chosenClass: "sortable-chosen"
   });
 
-  Sortable.create(bar, {
-    group: {
-      name: 'bar'
-    },
-    animation: 100
-  });
 });
