@@ -35,7 +35,7 @@ $(document).ready(function () {
     let name = optionsData[i].name;
     let $listItem = $("<li>").addClass("listItem");
     $listItem.text(name);
-    $('#data').append($listItem);
+    $('#dataItems').append($listItem);
   }
 
   const foo = document.getElementById("dataItems");
