@@ -47,7 +47,7 @@ $(document).ready(function () {
 
   Sortable.create(bar, {
     group: {
-      name: 'bar',
+      name: 'bar'
     },
     animation: 100
   });
