@@ -9,14 +9,13 @@ header {
   animation: BackgroundGradient 20s ease infinite;
   padding-left: 2em;
   padding-right: 2em;
-  height: 80px;
+  height: 110px;
   width: 100%;
 }
 
 img {
+  margin-top: 5px;
   float: left;
-  height: 80px;
-  width: 80px;
+  height: 100px;
+  width: 100px;
 }
-
-
