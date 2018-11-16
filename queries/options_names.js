@@ -7,8 +7,8 @@ module.exports = (knex) => {
     knex('option').select('name').where('poll_id', req.params.id)
     .then((option_names) => {
       res.send(option_names);
-    });
+    })
+    .catch(err => console.log('ERROR', err));
   });
-
 return router;
 };
