@@ -64,14 +64,16 @@ function createChart(data) {
       title:{
         display:true,
         text:'Current Poll Results',
-        fontSize: 25
+        fontSize: 25,
+        fontColor: 'black'
       },
       animation:{
         duration: 2000
       },
       legend:{
         labels:{
-          fontSize: 17
+          fontSize: 17,
+          fontColor: 'black'
         }
       }
     }
