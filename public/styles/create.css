@@ -3,3 +3,22 @@ textarea {
   margin-bottom: 20px;
   width:250px;
 }
+
+body {
+  margin: 0;
+  background-color: #666666;
+}
+
+section {
+  margin: 20px;
+}
+
+.head {
+  margin-left: 20px;
+}
+.click {
+  float: left;
+}
+#add {
+  float: left;
+}

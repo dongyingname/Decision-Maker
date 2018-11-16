@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <title>Decision Maker: Create</title>
   <% include partials/_header %>
@@ -10,26 +9,22 @@
   <link rel="stylesheet" type="text/css" href="/styles/create.css">
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
-
 </head>
 
 <body>
-  <section>
-    <h2>Create Your Own Decision Poll</h2>
+  <h2 class="head">Create Your Own Decision Poll</h2>
+  <section class=>
     <form id='form' method="POST" action="/poll/:id">
       <textarea id="email" name="email" placeholder="Your Email"></textarea>
-      <textarea id="poll_title" name="poll_title" placeholder="Title of This Poll"></textarea>
+      <textarea id="poll_title" name="poll_title" placeholder="Title of Poll"></textarea>
       <textarea id="description" name="description" placeholder="Description(Optional)"></textarea>
       <ol id="decisions">
-        <li><textarea class="decision" name="decision" placeholder="decision"></textarea></li>
-        <li><textarea class="decision" name="decision" placeholder="decision"></textarea></li>
+        <li><textarea class="decision" name="decision" placeholder="Enter Option"></textarea></li>
+        <li><textarea class="decision" name="decision" placeholder="Enter Option"></textarea></li>
       </ol>
       <input class="click" type="submit" value="Send Data">
     </form>
     <button id="add">Add</button>
   </section>
-
 </body>
-
-
 </html>
