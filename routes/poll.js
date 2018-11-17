@@ -2,8 +2,8 @@
 
 const express = require('express');
 const router = express.Router();
-
 module.exports = (knex) => {
+  const sub_query = require("../queries/sub_data.js")(knex);
 
   // router.get("/", (req, res) => {
   //   knex
@@ -40,28 +40,7 @@ module.exports = (knex) => {
 
   // sub page
   router.get("/sub/poll/:id", (req, res) => {
-    const id1 = req.params.id;
-    const decisions = [];
-
-    knex.select('poll_id', 'name', 'value').from('option').where({
-        poll_id: id1
-      })
-      .returning(['poll_id', 'name', 'value'])
-      .then((option) => {
-        return Promise.all(
-          option.map(function (decision) {
-            decisions.push(decision.name);
-          })
-        );
-      })
-      .then(function () {
-        const templateVars = {
-          decisions: decisions
-        };
-        console.log(decisions);
-        res.render("sub.ejs", templateVars);
-      })
-      .catch(err => console.log('ERROR', err));
+    sub_query(req, res);
 
   });
 

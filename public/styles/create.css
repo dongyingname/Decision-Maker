@@ -30,3 +30,11 @@ ol {
   margin-right: auto;
   padding-left: 0;
 }
+
+.error{
+  color: #DB7979;
+  font-weight: bold;
+  font-style: oblique;
+  display:none;
+}
+
