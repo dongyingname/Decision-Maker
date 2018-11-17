@@ -11,6 +11,7 @@ module.exports = (knex) => {
     const decisions = [];
     knex.select('poll_id', 'name', 'value').from('option').where({
         poll_id: id1
+
     })
     .then((option) => {
       return Promise.all(
@@ -27,6 +28,7 @@ module.exports = (knex) => {
         'decisions': decisions,
         'name_required': name_required
       };
+
         res.render("sub.ejs", templateVars);
     })
     .catch(err => console.log('ERROR', err));

@@ -18,10 +18,19 @@ $(document).ready(function () {
   });
 
   $("form").submit(function (event) {
-    
+    // event.preventDefault();
     const email = $('#email').val();
     const title = $('#poll_title').val();
-    const decisions = $('.decision').val();
+    const decisions = $('#decisions').find(".decision");
+   
+    if (!email){
+      alert("Please Type In Email");
+    }
+    if (!title){
+      alert("Please Type In Title");
+    }
+    let num = 0;
+    
     // console.log("email", email);
     // console.log("title", title);
     // console.log("decision",decisions);
