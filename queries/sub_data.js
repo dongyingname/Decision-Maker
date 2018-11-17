@@ -6,11 +6,9 @@
 //where the name is equal to option
 
 module.exports = (knex) => {
-    return (req,res)=>{
-
+  return (req, res) => {
     const id1 = req.params.id;
     const decisions = [];
-
     knex.select('poll_id', 'name', 'value').from('option').where({
         poll_id: id1
       })
@@ -29,8 +27,8 @@ module.exports = (knex) => {
         res.render("sub.ejs", templateVars);
       })
       .catch(err => console.log('ERROR', err));
-}
- 
+  }
+
 
 
 
