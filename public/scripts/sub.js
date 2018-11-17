@@ -31,12 +31,14 @@ $(document).ready(function () {
         id
       },
       complete:function(){
-        $(".success").show();
+        $("#success").show("slow");
+        $(".list").hide();
+        $("#sub").hide();
       },
-      success: window.setTimeout(function () {
+      // success: window.setTimeout(function () {
 
-        window.location.href = "/poll/5" + id;
-      }, 3000),
+      //   window.location.href = "/poll/5" + id;
+      // }, 3000),
 
       error: function (error) {
         console.log("error", error);
