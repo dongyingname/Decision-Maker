@@ -8,14 +8,20 @@ $(document).ready(function () {
     chosenClass: "sortable-chosen"
   });
 
-  // Returns path only)
+  const url = window.location.pathname.split('/')
+  const id = url[url.length - 1];
+
+  $("#result_link").on("click", function () {
+    window.location.href = "/admin/poll/" + id;
+  })
+
+
   $("#sub").on('click', function (e) {
     e.preventDefault();
     const lists = $("#dataItems").find($(".listItem"));
     const points = [];
     const decs = [];
-    const url = window.location.pathname.split('/')
-    const id = url[url.length - 1];
+
 
     for (let i = 0; i < lists.length; i++) {
       points.push(lists.length - i);
@@ -30,7 +36,7 @@ $(document).ready(function () {
         decs,
         id
       },
-      complete:function(){
+      complete: function () {
         $("#success").show("slow");
         $(".list").hide();
         $("#sub").hide();
