@@ -8,12 +8,32 @@ body {
   border-radius: 4px;
   background-color: #afafaf;
   padding-bottom: 30px;
-  margin-left: 150px;
-  margin-right: 150px;
+  margin-left: 33%;
+  margin-right: 33%;
   text-align: center;
   margin-top: 40px;
+  color: #692DB5;
+  box-shadow: 5px 3px 0px 8px;
 }
 
+h2 {
+  color: black;
+}
 
+button {
+  text-align: center;
+  min-width: inherit;
+  margin-left: 10%;
+  margin-right: 10%;
+  border: solid;
+  border-color: #afafaf;
+  border-radius: 15px;
+}
 
+button:hover {
+  opacity: .75;
+}
 
+.admin {
+  margin-top: 5px;
+}

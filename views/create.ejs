@@ -13,19 +13,20 @@
 </head>
 
 <body>
-  <h2 class="head">Create Your Own Decision Poll</h2>
-  <section>
+  <section class="main_body">
+    <h2 class="head">Create Your Own Decision Poll</h2>
     <form id='form' method="POST" action="/poll/:id">
       <input type="email" id="email" name="email" placeholder="Your Email"></input>
       <textarea id="poll_title" name="poll_title" placeholder="Title of Poll"></textarea>
       <textarea id="description" name="description" placeholder="Description (Optional)"></textarea>
-      <input type="checkbox" name="name_required" value="name_required">Require Names?</input>
+      <input type="checkbox" name="name_required" value="name_required" class="check">Require Names?</input>
       <ol id="decisions">
         <li><textarea class="decision" name="decision" placeholder="Enter Option"></textarea></li>
         <li><textarea class="decision" name="decision" placeholder="Enter Option"></textarea></li>
       </ol>
       <input class="click" type="submit" value="Send Data">
-      <button id="add" type="button">Add</button>
+      <br />
+      <button id="add" type="button"  class="click">Add Option</button>
     </form>
   </section>
   <section>
