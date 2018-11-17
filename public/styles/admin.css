@@ -12,6 +12,8 @@ body {
   margin-right: 50px;
   padding-bottom: 15px;
   background-color: #afafaf;
+  min-height: 200px;
+  min-width: 200px;
 }
 .title {
   text-align: center;

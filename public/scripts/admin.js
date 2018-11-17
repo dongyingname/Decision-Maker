@@ -36,7 +36,7 @@ function createChart(data) {
         display:true,
         text:'Current Poll Results',
         fontSize: 25,
-        color: 'black'
+        fontColor: 'black'
       },
       animation:{
         duration: 2000
