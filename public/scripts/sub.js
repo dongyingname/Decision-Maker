@@ -30,9 +30,14 @@ $(document).ready(function () {
         decs,
         id
       },
-      success: function (data) {
-        console.log("data success", data);
+      complete:function(){
+        $(".success").show();
       },
+      success: window.setTimeout(function () {
+
+        window.location.href = "/poll/5" + id;
+      }, 3000),
+
       error: function (error) {
         console.log("error", error);
       }

@@ -56,3 +56,23 @@ body {
 #sub {
   margin-left: 22px;
 }
+
+.success{
+  color: #55FE01;
+      display: none;
+      margin-top: 25px;
+      background-color: #EEF6AA;
+      border-radius: .5em;
+      border: 1px solid;
+      box-shadow: 1px 1px 3px #888;
+      padding-right: 5px;
+      padding-left: 5px;
+      text-align: center;
+      width: 40%;
+      left: 31%;
+      position: absolute;
+}
+
+.redirect{
+  margin-top: 50px;
+}
