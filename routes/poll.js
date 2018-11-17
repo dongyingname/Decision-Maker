@@ -33,7 +33,6 @@ module.exports = (knex) => {
     res.render("links.ejs", templateVars);
   });
 
-<<<<<<< HEAD
   // admin page
   router.get("/admin/poll/:id", (req, res) => {
     res.render("admin.ejs");
@@ -42,32 +41,6 @@ module.exports = (knex) => {
   // sub page
   router.get("/sub/poll/:id", (req, res) => {
     sub_query(req, res);
-=======
- // sub page
- router.get("/sub/poll/:id", (req, res) => {
-   res.render("sub.ejs");
- });
-
-    knex.select('poll_id', 'name', 'value').from('option').where({
-        poll_id: id1
-      })
-      .returning(['poll_id', 'name', 'value'])
-      .then((option) => {
-        return Promise.all(
-          option.map(function (decision) {
-            decisions.push(decision.name);
-          })
-        );
-      })
-      .then(function () {
-        const templateVars = {
-          decisions: decisions
-        };
-        console.log(decisions);
-        res.render("sub.ejs", templateVars);
-      })
-      .catch(err => console.log('ERROR', err));
->>>>>>> 52848427e0e35add67b9508ed60d907d079bf5ac
 
   });
 
