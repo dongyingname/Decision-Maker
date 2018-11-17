@@ -56,3 +56,13 @@ body {
 #sub {
   margin-left: 22px;
 }
+
+#success{
+  margin-top: 30px;
+  font-size: 30px;
+  display:none;
+}
+
+#result_link{
+  margin-top:20px;
+}

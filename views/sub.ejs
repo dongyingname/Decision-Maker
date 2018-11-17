@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>Decision Maker: Home Page</title>
   <% include partials/_header %>
@@ -12,11 +13,20 @@
   <script type="text/javascript" src="/scripts/sub.js"></script>
   <script src="//rubaxa.github.io/Sortable/Sortable.js"></script>
 </head>
+
 <body>
+
+
+
   <div class="details">
     <h2 class="title">What is your favourite?</h2>
-    <h4 class= "description">Description: insert dynamic description within html</h4>
+    <h4 class="description">Description: insert dynamic description within html</h4>
   </div>
+  <section id="success">
+    <div>You just submitted your ranking</div>
+    <div>You may see the ranking result in the following link: </div>
+    <button id="result_link">Poll Result</button>
+  </section>
   <section class="list">
     <div class="a1">
       <ul id="dataItems">
@@ -30,5 +40,8 @@
   <textarea id="user_name" name="user_name" placeholder="Your Name Here (Required)" required></textarea>
   <% } %>
   <button id="sub">Submit</button>
+
+
 </body>
+
 </html>
