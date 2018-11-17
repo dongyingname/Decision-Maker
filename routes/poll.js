@@ -34,10 +34,10 @@ module.exports = (knex) => {
     res.render("links.ejs", templateVars);
   });
 
- // sub page
- router.get("/sub/poll/:id", (req, res) => {
-   subq(req,res);
- });
+  // sub page
+  router.get("/sub/poll/:id", (req, res) => {
+    subq(req, res);
+  });
 
   // sending data to db for new poll
   router.post("/poll/:id", (req, res) => {
@@ -69,6 +69,40 @@ module.exports = (knex) => {
           .catch(err => console.log('ERROR', err));
       });
   });
+
+  //route that handles put request to endpoint 
+  router.put("/sub/poll/:id", (req, res) => {
+    const {
+      points,
+      decs
+    } = req.body;
+
+
+
+    for (let i = 0; i < points.length; i++) {
+
+      let add = points[i];
+      knex.select('value', 'name').from('option').where({
+          name: decs[i]
+        })
+        .then((option) => {
+          let value = option[i].value;
+          return knex.select('value', 'name').from('option').where({
+            name: decs[i]
+          }).update({
+            "value": Number(value) + Number(add)
+          })
+        })
+        .catch(err => console.log('ERROR', err));
+    }
+
+
+
+    // We try to execute all of them
+
+  });
+
+
 
   return router;
 };
