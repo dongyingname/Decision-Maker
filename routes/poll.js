@@ -4,6 +4,7 @@ const express = require('express');
 const router = express.Router();
 
 module.exports = (knex) => {
+  const subq = require("../queries/sub_data")(knex);
 
   // router.get("/", (req, res) => {
   //   knex
@@ -35,7 +36,7 @@ module.exports = (knex) => {
 
  // sub page
  router.get("/sub/poll/:id", (req, res) => {
-   res.render("sub.ejs");
+   subq(req,res);
  });
 
   // sending data to db for new poll
