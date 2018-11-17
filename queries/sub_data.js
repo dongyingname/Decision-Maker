@@ -11,26 +11,24 @@ module.exports = (knex) => {
     const decisions = [];
     knex.select('poll_id', 'name', 'value').from('option').where({
         poll_id: id1
-      })
-      .then((option) => {
-        return Promise.all(
-          option.map(function (decision) {
-            decisions.push(decision.name);
-          })
-        );
-      })
-      .then(function () {
-        const templateVars = {
-          decisions: decisions
-        };
-        console.log(decisions);
+    })
+    .then((option) => {
+      return Promise.all(
+        option.map(function (decision) {
+          decisions.push(decision.name);
+        })
+      );
+    })
+    .then(() => {
+      return knex('poll').select('name_required').where({ id:id1 });
+    })
+    .then((name_required) => {
+      const templateVars = {
+        'decisions': decisions,
+        'name_required': name_required
+      };
         res.render("sub.ejs", templateVars);
-      })
-      .catch(err => console.log('ERROR', err));
-  }
-
-
-
-
-
+    })
+    .catch(err => console.log('ERROR', err));
+  };
 };
