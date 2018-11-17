@@ -2,6 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
+const sendMail = require('../public/scripts/email.js');
 
 module.exports = (knex) => {
   const subq = require("../queries/sub_data")(knex);
@@ -63,7 +64,7 @@ module.exports = (knex) => {
           )
           .then(function () {
             const id = poll[0].id;
-            console.log(id);
+            sendMail.sendCreateEmail(req.body.email, poll[0].id);
             res.redirect('/poll/' + id);
           })
           .catch(err => console.log('ERROR', err));
