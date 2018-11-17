@@ -18,7 +18,7 @@ $(document).ready(function () {
   });
 
   $("form").submit(function (event) {
-    event.preventDefault();
+    // event.preventDefault();
     const email = $('#email').val();
     const title = $('#poll_title').val();
     const decisions = $('#decisions').find(".decision");
