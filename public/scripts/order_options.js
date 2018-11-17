@@ -9,8 +9,8 @@
 // run function returnSorted(sort, values) to sort
 
 let sort = function compare(a,b) {
-  const valueA = a.value
-  const valueB = b.value
+  const valueA = a.value;
+  const valueB = b.value;
   let comparison = 0;
   if (valueA < valueB) {
     comparison = 1;
@@ -18,17 +18,9 @@ let sort = function compare(a,b) {
     comparison = -1;
   }
   return comparison;
-}
+};
 
 function returnSorted(cb, values) {
-  return values.sort(cb)
+  return values.sort(cb);
 }
-console.log(returnSorted(sort, values))
-
-
-
-
-
-
-
-
+console.log(returnSorted(sort, values));

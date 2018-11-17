@@ -1,33 +1,4 @@
 "use strict";
-const arr = [{
-    "name": "dance",
-    "value": 20
-  },
-  {
-    "name": "sing",
-    "value": 17
-  },
-  {
-    "name": "gliding",
-    "value": 9
-  },
-  {
-    "name": "swimming",
-    "value": 30
-  },
-  {
-    "name": "running",
-    "value": 50
-  },
-  {
-    "name": "games",
-    "value": 7
-  },
-  {
-    "name": "rockClimbing",
-    "value": 9
-  }
-];
 
 function createChart(data) {
   var labelsArr = [];
@@ -46,17 +17,17 @@ function createChart(data) {
         label:'value',
         data: dataArr,
         backgroundColor:[
-          '#e6beff',
-          '#9a6324',
-          '#fffac8',
-          '#800000',
-          '#aaffc3',
-          '#808000',
-          '#ffd8b1',
-          '#000075',
-          '#808080',
-          '#ffffff',
-          '#000000'
+          '#7423B2',
+          '#6B2AB4',
+          '#6231B6',
+          '#5937B8',
+          '#503EBA',
+          '#4745BC',
+          '#3D4CBE',
+          '#3453C0',
+          '#2B59C2',
+          '#2260C4',
+          '#1967C6'
         ],
       }]
     },

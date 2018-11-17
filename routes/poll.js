@@ -2,8 +2,8 @@
 
 const express = require('express');
 const router = express.Router();
+
 module.exports = (knex) => {
-  const sub_query = require("../queries/sub_data.js")(knex);
 
   // router.get("/", (req, res) => {
   //   knex
@@ -33,16 +33,10 @@ module.exports = (knex) => {
     res.render("links.ejs", templateVars);
   });
 
-  // admin page
-  router.get("/admin/poll/:id", (req, res) => {
-    res.render("admin.ejs");
-  });
-
-  // sub page
-  router.get("/sub/poll/:id", (req, res) => {
-    sub_query(req, res);
-
-  });
+ // sub page
+ router.get("/sub/poll/:id", (req, res) => {
+   res.render("sub.ejs");
+ });
 
   // sending data to db for new poll
   router.post("/poll/:id", (req, res) => {
