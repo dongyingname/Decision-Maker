@@ -76,19 +76,29 @@ module.exports = (knex) => {
       points,
       decs
     } = req.body;
-
-
-
+    // Select table with poll_id that is the same as the poll_id of poll that is recently
+    // created.
+    // loop on that table for each name and add new points to the value based on the position
+    // of that name in the array that is passed from client to this route.
+    // When selecting table one has to specify name and poll_id in case of repeatition of name
+    // in the other polls
     for (let i = 0; i < points.length; i++) {
 
       let add = points[i];
-      knex.select('value', 'name').from('option').where({
-          name: decs[i]
+      knex.select('value', 'name', 'poll_id').from('option').where({
+          "name": decs[i],
+          "poll_id": 143
         })
         .then((option) => {
-          let value = option[i].value;
-          return knex.select('value', 'name').from('option').where({
-            name: decs[i]
+
+          // console.log(option);
+          // // console.log(option.length);
+          // console.log(option[0].name);
+          let value = option[0].value;
+          // console.log(value);
+          return knex.select('value', 'name', 'poll_id').from('option').where({
+            name: decs[i],
+            "poll_id": 143
           }).update({
             "value": Number(value) + Number(add)
           })
