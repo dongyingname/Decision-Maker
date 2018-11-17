@@ -7,15 +7,16 @@
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <link rel="stylesheet" href="/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/links.css" type="text/css" />
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
 </head>
 
 <body>
-  <section>
-    <h2>CHoose Wisely</h2>
-    <button type="button"><a href="/sub/poll/<%= id  %>">Submission!</button>
-    <button type="button"><a href="/admin/poll/<%= id  %>">Administration!</button>
+  <section class="container">
+    <h2 class="title">Click The Links Below!</h2>
+    <button class="sub" type="button"><a href="/sub/poll/<%= id  %>">Submissions page</button>
+      <div></div>
+    <button class="admin" type="button"><a href="/admin/poll/<%= id  %>">Administration page</button>
   </section>
 </body>
 

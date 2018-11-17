@@ -1,7 +1,19 @@
 body {
-  background-color: #EEE;
+  background-color: #424242;
 }
 
-body h1 {
-  color: #244751;
+.container {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+  background-color: #afafaf;
+  padding-bottom: 30px;
+  margin-left: 150px;
+  margin-right: 150px;
+  text-align: center;
+  margin-top: 40px;
 }
+
+
+
+
