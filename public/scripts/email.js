@@ -1,7 +1,7 @@
-// const fs = require('fs');
 const nodemailer = require('nodemailer');
 
-let transporter = nodemailer.createTransport({
+function sendCreateTweet(adminEmail, id) {
+  let transporter = nodemailer.createTransport({
     service: 'gmail',
     secure: false,
     port: 25,
@@ -12,17 +12,46 @@ let transporter = nodemailer.createTransport({
     tls: {
         rejectUnauthorized: false
     }
-});
-let HelperOptions = {
+  });
+  let HelperOptions = {
     form: '"MID" <donotreply.midterm.12345432523@gmail.com>',
-    to: 'tristandeering714@gmail.com',
-    subject: 'Hello, world!',
-    text: 'hey it worked'
-};
-transporter.sendMail(HelperOptions, (error, info) => {
+    to: adminEmail,
+    subject: 'Heres your links!',
+    text: `Admin link: localhost:8080/admin/poll/${id}
+    User link: localhost:8080/sub/poll/${id}`
+  };
+  transporter.sendMail(HelperOptions, (error, info) => {
     if (error) {
-        return console.log(error);
+      return console.log(error);
     }
     console.log("sent");
-    console.log(info);
-});
+  });
+}
+
+function sendSubmitEmail(adminEmail, id) {
+  let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    secure: false,
+    port: 25,
+    auth: {
+        user: 'donotreply.midterm.12345432523@gmail.com',
+        pass: 'randompass'
+    },
+    tls: {
+        rejectUnauthorized: false
+    }
+  });
+  let HelperOptions = {
+    form: '"MID" <donotreply.midterm.12345432523@gmail.com>',
+    to: adminEmail,
+    subject: 'User submitted data!',
+    text: `Admin link: localhost:8080/admin/poll/${id}`
+  };
+  transporter.sendMail(HelperOptions, (error, info) => {
+    if (error) {
+      return console.log(error);
+    }
+    console.log("sent");
+  });
+}
+
