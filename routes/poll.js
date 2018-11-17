@@ -70,12 +70,14 @@ module.exports = (knex) => {
       });
   });
 
-  //route that handles put request to endpoint 
+  //route that handles put request to endpoint /sub/poll/:id
   router.put("/sub/poll/:id", (req, res) => {
     const {
       points,
-      decs
+      decs,
     } = req.body;
+    const id = req.params.id;
+    console.log(id);
     // Select table with poll_id that is the same as the poll_id of poll that is recently
     // created.
     // loop on that table for each name and add new points to the value based on the position
@@ -87,18 +89,13 @@ module.exports = (knex) => {
       let add = points[i];
       knex.select('value', 'name', 'poll_id').from('option').where({
           "name": decs[i],
-          "poll_id": 143
+          "poll_id": id
         })
         .then((option) => {
-
-          // console.log(option);
-          // // console.log(option.length);
-          // console.log(option[0].name);
           let value = option[0].value;
-          // console.log(value);
           return knex.select('value', 'name', 'poll_id').from('option').where({
             name: decs[i],
-            "poll_id": 143
+            "poll_id": id
           }).update({
             "value": Number(value) + Number(add)
           })

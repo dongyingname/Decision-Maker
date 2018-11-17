@@ -21,9 +21,10 @@ module.exports = (knex) => {
       })
       .then(function () {
         const templateVars = {
-          decisions: decisions
+          "decisions": decisions,
+          "id":id1
         };
-        console.log(decisions);
+        // console.log(decisions);
         res.render("sub.ejs", templateVars);
       })
       .catch(err => console.log('ERROR', err));
