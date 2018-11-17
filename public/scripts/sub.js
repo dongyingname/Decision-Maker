@@ -1,34 +1,4 @@
 "use strict";
-// console.log(decisions);
-// const optionsData = [{
-//     "name": "dance",
-//     "value": 20
-//   },
-//   {
-//     "name": "sing",
-//     "value": 17
-//   },
-//   {
-//     "name": "run",
-//     "value": 9
-//   },
-//   {
-//     "name": "wave",
-//     "value": 30
-//   },
-//   {
-//     "name": "jump",
-//     "value": 21
-//   },
-//   {
-//     "name": "sit",
-//     "value": 2
-//   },
-//   {
-//     "name": "shoot",
-//     "value": 9
-//   }
-// ];
 
 $(document).ready(function () {
   const foo = document.getElementById("dataItems");
@@ -36,6 +6,43 @@ $(document).ready(function () {
     group: 'foo',
     animation: 100,
     chosenClass: "sortable-chosen"
+  });
+
+  // Returns path only)
+  $("#sub").on('click', function (e) {
+    e.preventDefault();
+    const lists = $("#dataItems").find($(".listItem"));
+    const points = [];
+    const decs = [];
+    const url = window.location.pathname.split('/')
+    const id = url[url.length - 1];
+
+    for (let i = 0; i < lists.length; i++) {
+      points.push(lists.length - i);
+      decs.push(lists[i].innerHTML);
+    }
+
+    $.ajax({
+      url: "/sub/poll/" + id,
+      type: 'PUT',
+      data: {
+        points,
+        decs,
+        id
+      },
+      success: function (data) {
+        console.log("data success", data);
+      },
+      error: function (error) {
+        console.log("error", error);
+      }
+    })
+
+
+
+
+
+
   });
 
 });

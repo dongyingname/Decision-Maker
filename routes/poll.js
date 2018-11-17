@@ -31,14 +31,13 @@ module.exports = (knex) => {
     let templateVars = {
       id: req.params.id
     };
-    //  console.log(templateVars);
     res.render("links.ejs", templateVars);
   });
 
- // sub page
- router.get("/sub/poll/:id", (req, res) => {
-   subq(req,res);
- });
+  // sub page
+  router.get("/sub/poll/:id", (req, res) => {
+    subq(req, res);
+  });
 
   // sending data to db for new poll
   router.post("/poll/:id", (req, res) => {
@@ -64,12 +63,62 @@ module.exports = (knex) => {
           )
           .then(function () {
             const id = poll[0].id;
+
             sendMail.sendCreateEmail(req.body.email, poll[0].id);
+
+
             res.redirect('/poll/' + id);
           })
           .catch(err => console.log('ERROR', err));
       });
   });
+
+  //route that handles put request to endpoint /sub/poll/:id
+  router.put("/sub/poll/:id", (req, res) => {
+    const {
+      points,
+      decs,
+    } = req.body;
+    const id = req.params.id;
+    // Select table with poll_id that is the same as the poll_id of poll that is recently
+    // created.
+    // loop on that table for each name and add new points to the value based on the position
+    // of that name in the array that is passed from client to this route.
+    // When selecting table one has to specify name and poll_id in case of repeatition of name
+    // in the other polls
+    for (let i = 0; i < points.length; i++) {
+
+
+      let add = points[i];
+      knex.select('value', 'name', 'poll_id').from('option').where({
+          "name": decs[i],
+          "poll_id": id
+        })
+        .then((option) => {
+          let value = option[0].value;
+          return knex.select('value', 'name', 'poll_id').from('option').where({
+              name: decs[i],
+              "poll_id": id
+            }).update({
+              "value": Number(value) + Number(add)
+            })
+            .then(function () {
+              console.log("not frozen yet")
+            })
+        })
+        .catch(err => {
+          console.log('ERROR', err)
+          res.status(500).json({
+            error: err.message
+          });
+        });
+    }
+    res.status(200).send();
+    // We try to execute all of them
+
+  });
+
+
 
   return router;
 };
