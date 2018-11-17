@@ -83,6 +83,7 @@ module.exports = (knex) => {
     // in the other polls
     for (let i = 0; i < points.length; i++) {
 
+
       let add = points[i];
       knex.select('value', 'name', 'poll_id').from('option').where({
           "name": decs[i],
@@ -91,17 +92,23 @@ module.exports = (knex) => {
         .then((option) => {
           let value = option[0].value;
           return knex.select('value', 'name', 'poll_id').from('option').where({
-            name: decs[i],
-            "poll_id": id
-          }).update({
-            "value": Number(value) + Number(add)
-          })
+              name: decs[i],
+              "poll_id": id
+            }).update({
+              "value": Number(value) + Number(add)
+            })
+            .then(function () {
+              console.log("not frozen yet")
+            })
         })
-        .catch(err => console.log('ERROR', err));
+        .catch(err => {
+          console.log('ERROR', err)
+          res.status(500).json({
+            error: err.message
+          });
+        });
     }
-
-
-
+    res.status(200).send();
     // We try to execute all of them
 
   });
