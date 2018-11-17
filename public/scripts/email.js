@@ -1,6 +1,6 @@
-const nodemailer = require('nodemailer');
 
-function sendCreateTweet(adminEmail, id) {
+exports.sendCreateEmail = (adminEmail, id) => {
+  let nodemailer = require('nodemailer');
   let transporter = nodemailer.createTransport({
     service: 'gmail',
     secure: false,
@@ -26,9 +26,10 @@ function sendCreateTweet(adminEmail, id) {
     }
     console.log("sent");
   });
-}
+};
 
 function sendSubmitEmail(adminEmail, id) {
+  let nodemailer = require('nodemailer');
   let transporter = nodemailer.createTransport({
     service: 'gmail',
     secure: false,
@@ -54,4 +55,3 @@ function sendSubmitEmail(adminEmail, id) {
     console.log("sent");
   });
 }
-
