@@ -24,7 +24,6 @@ module.exports = (knex) => {
           "decisions": decisions,
           "id":id1
         };
-        // console.log(decisions);
         res.render("sub.ejs", templateVars);
       })
       .catch(err => console.log('ERROR', err));

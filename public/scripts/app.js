@@ -22,7 +22,7 @@ $(document).ready(function () {
     const email = $('#email').val();
     const title = $('#poll_title').val();
     const decisions = $('#decisions').find(".decision");
-    console.log()
+   
     if (!email){
       alert("Please Type In Email");
     }

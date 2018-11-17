@@ -30,7 +30,6 @@ module.exports = (knex) => {
     let templateVars = {
       id: req.params.id
     };
-    //  console.log(templateVars);
     res.render("links.ejs", templateVars);
   });
 
@@ -63,7 +62,6 @@ module.exports = (knex) => {
           )
           .then(function () {
             const id = poll[0].id;
-            console.log(id);
             res.redirect('/poll/' + id);
           })
           .catch(err => console.log('ERROR', err));
@@ -77,7 +75,6 @@ module.exports = (knex) => {
       decs,
     } = req.body;
     const id = req.params.id;
-    console.log(id);
     // Select table with poll_id that is the same as the poll_id of poll that is recently
     // created.
     // loop on that table for each name and add new points to the value based on the position
