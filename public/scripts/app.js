@@ -9,45 +9,34 @@ function append(textarea) {
   $("#decisions").append(textarea);
 }
 
-//When DOM elements are loaded, alert in console "document ready"
 //When #add button is clicked, append a empty textarea to to the form
 $(document).ready(function () {
-  console.log("docunent ready");
   $("#add").on("click", function (event) {
     append(createDecision());
   });
+  $("#form").on("submit", function (e) {
+    e.preventDefault()
+    var input = $('#form').serializeArray()
+    let optionCheck = false;
+    const email = input[0];
+    const title = input[1]
+    const description = input[2]
 
-  $("form").submit(function (event) {
-    
-    const email = $('#email').val();
-    const title = $('#poll_title').val();
-    const decisions = $('.decision').val();
-    // console.log("email", email);
-    // console.log("title", title);
-    // console.log("decision",decisions);
-    const arr = decisions.split(" ");
-    console.log(typeof(arr));
-    console.log(arr);
-
-
-    
+    for (let i = 3; i < input.length; i++) {
+      console.log(input[i])
+      if (!input[i].value) {
+        optionCheck = false;
+        //dislplay errors
+      } else {
+        optionCheck = true;
+      }
+      console.log(optionCheck)
+    }
+    if (optionCheck) {
+      // run knex
+    }
   });
 });
 
 
 
-
-
-
-
-
-// $(() => {
-//   $.ajax({
-//     method: "GET",
-//     url: "/api/users"
-//   }).done((users) => {
-//     for(user of users) {
-//       $("<div>").text(user.name).appendTo($("body"));
-//     }
-//   });;
-// });
