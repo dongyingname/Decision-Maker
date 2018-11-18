@@ -66,3 +66,11 @@ body {
 #result_link{
   margin-top:20px;
 }
+#user_name {
+  display: inherit;
+  margin-left: 44%;
+  margin-right: 50%;
+  margin-bottom: 8px;
+  border: solid;
+  border-radius: 5px;
+}

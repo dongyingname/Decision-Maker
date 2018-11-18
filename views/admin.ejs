@@ -25,5 +25,11 @@ var myobj = <%- name_values %>
     createChart(myobj);
   });
 </script>
+
+<ul>
+  <% for (let i = 0; i < user_names.length; i++) { %>
+    <li class="user_names"><%= user_names[i] %></li>
+    <% } %>
+</ul>
 </body>
 </html>

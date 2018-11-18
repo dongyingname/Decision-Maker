@@ -66,7 +66,6 @@ module.exports = (knex) => {
 
             sendMail.sendCreateEmail(req.body.email, poll[0].id);
 
-
             res.redirect('/poll/' + id);
           })
           .catch(err => console.log('ERROR', err));
@@ -77,44 +76,57 @@ module.exports = (knex) => {
   router.put("/sub/poll/:id", (req, res) => {
     const {
       points,
+<<<<<<< HEAD
       decs
+=======
+      decs,
+      user_name
+>>>>>>> ea756ead3e240417493330b2baa30ab401fc3e4d
     } = req.body;
     const id = req.params.id;
-   console.log("Points",points);
-   console.log("Decisions",decs);
-   console.log(id);
-
     // Select table with poll_id that is the same as the poll_id of poll that is recently
     // created.
     // loop on that table for each name and add new points to the value based on the position
     // of that name in the array that is passed from client to this route.
     // When selecting table one has to specify name and poll_id in case of repeatition of name
     // in the other polls
-    for (let i = 0; i < points.length; i++) {
-      let add = points[i];
-      knex.select('value', 'name', 'poll_id').from('option').where({
-          "name": decs[i],
-          "poll_id": id
+    knex.select('email').from('owner').where({
+        "id": id
+      })
+      .then(function (mail) {
+        let email = mail[0].email;
+        sendMail.sendSubmitEmail(email, id)
+      })
+      .then(function () {
+        return knex('user_name').insert({
+          "poll_id": id,
+          "user_name": user_name
         })
-        .then((option) => {
-          console.log(option);
-          let value = option[0].value;
-          return knex.select('value', 'name', 'poll_id').from('option').where({
-              name: decs[i],
+      })
+      .then(function () {
+        for (let i = 0; i < points.length; i++) {
+          let add = points[i];
+          knex.select('value', 'name', 'poll_id').from('option').where({
+              "name": decs[i],
               "poll_id": id
-            }).update({
-              "value": Number(value) + Number(add)
             })
-            .then(function () {
-              console.log("not frozen yet")
+            .then((option) => {
+              let value = option[0].value;
+              return knex.select('value', 'name', 'poll_id').from('option').where({
+                name: decs[i],
+                "poll_id": id
+              }).update({
+                "value": Number(value) + Number(add)
+              })
             })
-        })
-        .catch(err => {
-          console.log('ERROR', err)
-          res.status(500).json({
-            error: err.message
-          });
+        }
+      })
+      .catch(err => {
+        console.log('ERROR', err)
+        res.status(500).json({
+          error: err.message
         });
+<<<<<<< HEAD
     }
     knex('names')
     .insert({
@@ -128,4 +140,11 @@ module.exports = (knex) => {
     // We try to execute all of them
     return router;
   });
+=======
+      });
+    res.status(200).send();
+  })
+
+  return router;
+>>>>>>> ea756ead3e240417493330b2baa30ab401fc3e4d
 };
