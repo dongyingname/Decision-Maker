@@ -105,9 +105,6 @@ module.exports = (knex) => {
             }).update({
               "value": Number(value) + Number(add)
             })
-            .then(function () {
-              console.log("not frozen yet")
-            })
         })
         .catch(err => {
           console.log('ERROR', err)
