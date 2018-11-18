@@ -28,7 +28,7 @@ exports.sendCreateEmail = (adminEmail, id) => {
   });
 };
 
-function sendSubmitEmail(adminEmail, id) {
+exports.sendSubmitEmail = (adminEmail, id) => {
   let nodemailer = require('nodemailer');
   let transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -46,7 +46,7 @@ function sendSubmitEmail(adminEmail, id) {
     form: '"MID" <donotreply.midterm.12345432523@gmail.com>',
     to: adminEmail,
     subject: 'User submitted data!',
-    text: `Admin link: localhost:8080/admin/poll/${id}`
+    text: `Check your results here: localhost:8080/admin/poll/${id}`
   };
   transporter.sendMail(HelperOptions, (error, info) => {
     if (error) {
