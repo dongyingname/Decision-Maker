@@ -13,7 +13,7 @@ body {
   text-align: center;
   margin-top: 40px;
   color: #692DB5;
-  box-shadow: 5px 3px 0px 8px;
+  box-shadow: 0 4px 8px 0 #692DB5, 0 6px 20px 0 #692DB5;
 }
 
 h2 {

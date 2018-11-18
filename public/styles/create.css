@@ -8,8 +8,8 @@
   margin-right: 33%;
   text-align: center;
   margin-top: 40px;
-  color: #692DB5;
-  box-shadow: 5px 3px 0px 8px;
+  color: #6810cc;
+  box-shadow: 0 4px 8px 0 #692DB5, 0 6px 20px 0 #692DB5;
 }
 
 .click {
@@ -36,12 +36,9 @@ body {
   background-color: #666666;
 }
 
-.container {
-  margin: 20px;
-}
-
 .head {
   margin-left: 20px;
+  margin-right: 20px;
 }
 
 html {
@@ -51,7 +48,6 @@ html {
 ol {
   text-align: center;
   list-style-position: inner;
-  margin-left: 5px;
   list-style-type: none;
   margin-right: auto;
   padding-left: 0;
@@ -67,4 +63,5 @@ ol {
     padding-left: 5px;
     display: none;
     text-align: center;
+    margin-top: 10px;
 }
