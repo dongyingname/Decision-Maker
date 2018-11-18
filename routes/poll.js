@@ -66,7 +66,7 @@ module.exports = (knex) => {
             if (req.body.name_required) {
               if (req.body.name_required == "true") {
                 return knex('poll')
-                .insert({ name_required: true })
+                .update({ name_required: true })
                 .where({ id: poll[0].id });
               }
             }
