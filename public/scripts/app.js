@@ -23,7 +23,9 @@ $(document).ready(function () {
     $('#email, #poll_title, .decision').each(function() {
       if ($(this).val() == '') {
         e.preventDefault();
-        $('.error').html("Please enter in email, title, and atleast 2 decisions");
+        $('.main_body').css("margin-top", "10px");
+        $('.error').css("display", "inline-block");
+        $('.error').html("Please enter in email, title, and atleast 2 options");
         $('.error').fadeIn();
       }
     });

@@ -1,4 +1,4 @@
-"use strict";
+"use strict"
 
 $(document).ready(function () {
   const foo = document.getElementById("dataItems");
@@ -52,12 +52,5 @@ $(document).ready(function () {
         console.log("error", error);
       }
     })
-
-
-
-
-
-
   });
-
 });
