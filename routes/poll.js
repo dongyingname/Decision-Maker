@@ -77,6 +77,7 @@ module.exports = (knex) => {
     const {
       points,
       decs,
+      user_name
     } = req.body;
     const id = req.params.id;
     // Select table with poll_id that is the same as the poll_id of poll that is recently

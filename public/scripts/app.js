@@ -12,6 +12,7 @@ function append(textarea) {
 //When #add button is clicked, append a empty textarea to to the form
 $(document).ready(function () {
   $("#add").on("click", function (event) {
+    console.log($('input:checked').length>0);
     append(createDecision());
   });
   $('#delete').on('click', function (event) {

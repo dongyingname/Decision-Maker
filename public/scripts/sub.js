@@ -10,17 +10,20 @@ $(document).ready(function () {
 
   const url = window.location.pathname.split('/')
   const id = url[url.length - 1];
+  
 
   $("#result_link").on("click", function () {
     window.location.href = "/admin/poll/" + id;
   })
 
-
+  
   $("#sub").on('click', function (e) {
+    const user_name = $("#user_name").val();
     e.preventDefault();
     const lists = $("#dataItems").find($(".listItem"));
     const points = [];
     const decs = [];
+    
 
 
     for (let i = 0; i < lists.length; i++) {
@@ -34,7 +37,8 @@ $(document).ready(function () {
       data: {
         points,
         decs,
-        id
+        id,
+        user_name
       },
       complete: function () {
         $("#success").show("slow");
