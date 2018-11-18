@@ -126,8 +126,6 @@ module.exports = (knex) => {
     });
     res.status(200).send();
     // We try to execute all of them
-
+    return router;
   });
-
-  return router;
 };
