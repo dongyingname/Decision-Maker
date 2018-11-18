@@ -1,7 +1,7 @@
 
 exports.up = function(knex, Promise) {
   return knex.schema.table('poll', table => {
-    table.boolean('name_required').default(false);
+    table.boolean('name_required');
   });
 };
 

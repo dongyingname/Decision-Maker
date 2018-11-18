@@ -48,10 +48,11 @@ module.exports = (knex) => {
         return knex('poll').insert({
             email_id: user[0].id,
             question: req.body.poll_title,
-            description: req.body.description
+            description: req.body.description,
           })
           .returning(['id']);
       })
+
       .then((poll) => {
         return Promise.all(
             req.body.decision.map(function (decision) {
@@ -61,6 +62,15 @@ module.exports = (knex) => {
               });
             })
           )
+          .then(() => {
+            if (req.body.name_required) {
+              if (req.body.name_required == "true") {
+                return knex('poll')
+                .insert({ name_required: true })
+                .where({ id: poll[0].id });
+              }
+            }
+          })
           .then(function () {
             const id = poll[0].id;
 
@@ -76,12 +86,8 @@ module.exports = (knex) => {
   router.put("/sub/poll/:id", (req, res) => {
     const {
       points,
-<<<<<<< HEAD
-      decs
-=======
       decs,
       user_name
->>>>>>> ea756ead3e240417493330b2baa30ab401fc3e4d
     } = req.body;
     const id = req.params.id;
     // Select table with poll_id that is the same as the poll_id of poll that is recently
@@ -95,13 +101,13 @@ module.exports = (knex) => {
       })
       .then(function (mail) {
         let email = mail[0].email;
-        sendMail.sendSubmitEmail(email, id)
+        sendMail.sendSubmitEmail(email, id);
       })
       .then(function () {
         return knex('user_name').insert({
           "poll_id": id,
           "user_name": user_name
-        })
+        });
       })
       .then(function () {
         for (let i = 0; i < points.length; i++) {
@@ -117,34 +123,18 @@ module.exports = (knex) => {
                 "poll_id": id
               }).update({
                 "value": Number(value) + Number(add)
-              })
-            })
+              });
+            });
         }
       })
       .catch(err => {
-        console.log('ERROR', err)
+        console.log('ERROR', err);
         res.status(500).json({
           error: err.message
         });
-<<<<<<< HEAD
-    }
-    knex('names')
-    .insert({
-      'poll_id': req.params.id,
-      'user_name': req.body.user_name
-    })
-    .then((name) => {
-      console.log(req.body);
-    });
-    res.status(200).send();
-    // We try to execute all of them
-    return router;
-  });
-=======
       });
     res.status(200).send();
-  })
+  });
 
   return router;
->>>>>>> ea756ead3e240417493330b2baa30ab401fc3e4d
 };

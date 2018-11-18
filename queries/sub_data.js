@@ -25,9 +25,9 @@ module.exports = (knex) => {
         });
       })
       .then((poll) => {
-        // console.log(poll[0].name_required);
         const templateVars = {
           decisions: decisions,
+          name_required: poll[0].name_required,
           question:poll[0].question,
           description:poll[0].description
         };
