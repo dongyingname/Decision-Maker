@@ -78,6 +78,7 @@ module.exports = (knex) => {
     const {
       points,
       decs,
+      user_name
     } = req.body;
     const id = req.params.id;
   //  console.log("Points",points);
@@ -105,6 +106,12 @@ module.exports = (knex) => {
             }).update({
               "value": Number(value) + Number(add)
             })
+        })
+        .then(function(){
+          return knex('user_name').insert({
+            "poll_id": id,
+            "user_name": user_name
+          });
         })
         .catch(err => {
           console.log('ERROR', err)
