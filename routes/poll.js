@@ -77,7 +77,7 @@ module.exports = (knex) => {
   router.put("/sub/poll/:id", (req, res) => {
     const {
       points,
-      decs,
+      decs
     } = req.body;
     const id = req.params.id;
    console.log("Points",points);
@@ -116,12 +116,18 @@ module.exports = (knex) => {
           });
         });
     }
+    knex('names')
+    .insert({
+      'poll_id': req.params.id,
+      'user_name': req.body.user_name
+    })
+    .then((name) => {
+      console.log(req.body);
+    });
     res.status(200).send();
     // We try to execute all of them
 
   });
-
-
 
   return router;
 };

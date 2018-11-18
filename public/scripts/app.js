@@ -18,14 +18,14 @@ $(document).ready(function () {
     if ($('.decision').serializeArray().length > 2) {
       $('#decisions').children().last().remove();
     }
-  })
+  });
   $("#form").on("submit", function (e) {
     $('#email, #poll_title, .decision').each(function() {
       if ($(this).val() == '') {
         e.preventDefault();
-        $('.error').html("Please enter in email, title, and atleast 2 decisions")
+        $('.error').html("Please enter in email, title, and atleast 2 decisions");
         $('.error').fadeIn();
       }
-    })
+    });
   });
 });

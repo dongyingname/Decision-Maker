@@ -1,6 +1,5 @@
-
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('names', table => {
+  return knex.schema.createTable('name', table => {
     table.increments('id');
     table.integer('poll_id').unsigned();
     table.foreign('poll_id').references('poll.id');

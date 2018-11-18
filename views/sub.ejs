@@ -11,6 +11,7 @@
   <link rel="stylesheet" type="text/css" href="/styles/sub.css" />
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/sub.js"></script>
+  <script type="text/javascript" src="./queries/name_data.js"></script>
   <script src="//rubaxa.github.io/Sortable/Sortable.js"></script>
 </head>
 
@@ -37,7 +38,7 @@
     </div>
   </section>
   <% if (name_required[0].name_required) { %>
-  <textarea id="user_name" name="user_name" placeholder="Your Name Here (Required)" required></textarea>
+  <textarea id="user_name" name="user_name" class="user_name"placeholder="Your Name Here (Required)" required></textarea>
   <% } %>
   <button id="sub">Submit</button>
 

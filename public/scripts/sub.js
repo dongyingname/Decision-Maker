@@ -21,6 +21,7 @@ $(document).ready(function () {
     const lists = $("#dataItems").find($(".listItem"));
     const points = [];
     const decs = [];
+    const name = $(".user_name")
 
 
     for (let i = 0; i < lists.length; i++) {
@@ -34,7 +35,8 @@ $(document).ready(function () {
       data: {
         points,
         decs,
-        id
+        id,
+        name
       },
       complete: function () {
         $("#success").show("slow");
