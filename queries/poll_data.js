@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 module.exports = (knex) => {
-  const users = [];
+  let users = [];
   const templateVars = {};
   router.get('/admin/poll/:id', (req, res) => {
     const id = req.params.id;
@@ -28,6 +28,7 @@ module.exports = (knex) => {
                 templateVars["name_values"] = JSON.stringify(name_values);
                 console.log("final", templateVars.user_names);
                 res.render('admin.ejs', templateVars);
+                users = [];
                 // res.send(templateVars)
               });
           })
