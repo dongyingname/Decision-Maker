@@ -9,6 +9,7 @@ module.exports = (knex) => {
     knex('user_name').select("user_name", "poll_id")
       .where('poll_id', id)
       .then((user_names) => {
+        console.log(user_names);
         return Promise.all(
           user_names.map(function (user_name) {
             users.push(user_name.user_name);
@@ -25,7 +26,7 @@ module.exports = (knex) => {
                 templateVars["user_names"] = users;
                 templateVars["question"] = question[0].question;
                 templateVars["name_values"] = JSON.stringify(name_values);
-                console.log("final", templateVars)
+                console.log("final", templateVars.user_names);
                 res.render('admin.ejs', templateVars);
                 // res.send(templateVars)
               });
