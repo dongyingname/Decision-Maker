@@ -80,9 +80,9 @@ module.exports = (knex) => {
       decs,
     } = req.body;
     const id = req.params.id;
-   console.log("Points",points);
-   console.log("Decisions",decs);
-   console.log(id);
+  //  console.log("Points",points);
+  //  console.log("Decisions",decs);
+  //  console.log(id);
 
     // Select table with poll_id that is the same as the poll_id of poll that is recently
     // created.

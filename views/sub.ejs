@@ -19,8 +19,8 @@
 
 
   <div class="details">
-    <h2 class="title">What is your favourite?</h2>
-    <h4 class="description">Description: insert dynamic description within html</h4>
+    <h2 class="title"><%= question %></h2>
+    <h4 class="description"><%= description %></h4>
   </div>
   <section id="success">
     <div>You just submitted your ranking</div>
@@ -36,9 +36,7 @@
       </ul>
     </div>
   </section>
-  <% if (name_required[0].name_required) { %>
-  <textarea id="user_name" name="user_name" placeholder="Your Name Here (Required)"></textarea>
-  <% } %>
+  
   <button id="sub">Submit</button>
 
 
