@@ -1,4 +1,4 @@
-
+// Export send email API 
 exports.sendCreateEmail = (adminEmail, id) => {
   let nodemailer = require('nodemailer');
   let transporter = nodemailer.createTransport({
@@ -6,11 +6,11 @@ exports.sendCreateEmail = (adminEmail, id) => {
     secure: false,
     port: 25,
     auth: {
-        user: 'donotreply.midterm.12345432523@gmail.com',
-        pass: 'randompass'
+      user: 'donotreply.midterm.12345432523@gmail.com',
+      pass: 'randompass'
     },
     tls: {
-        rejectUnauthorized: false
+      rejectUnauthorized: false
     }
   });
   let HelperOptions = {
@@ -35,11 +35,11 @@ exports.sendSubmitEmail = (adminEmail, id) => {
     secure: false,
     port: 25,
     auth: {
-        user: 'donotreply.midterm.12345432523@gmail.com',
-        pass: 'randompass'
+      user: 'donotreply.midterm.12345432523@gmail.com',
+      pass: 'randompass'
     },
     tls: {
-        rejectUnauthorized: false
+      rejectUnauthorized: false
     }
   });
   let HelperOptions = {

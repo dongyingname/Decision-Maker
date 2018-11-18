@@ -1,3 +1,4 @@
+// Export a GET route of endpoint /poll/:id/options_names
 const express = require('express');
 const router = express.Router();
 

@@ -1,3 +1,8 @@
+
+// Export a GET route of endpoint /admin/poll/:id
+// Get user_name, question, and name_values for the poll_id from the database
+//and send it to the admin page with templateVars
+
 const express = require('express');
 const router = express.Router();
 
@@ -29,7 +34,6 @@ module.exports = (knex) => {
                 console.log("final", templateVars.user_names);
                 res.render('admin.ejs', templateVars);
                 users = [];
-                // res.send(templateVars)
               });
           })
       })

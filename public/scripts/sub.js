@@ -1,6 +1,10 @@
 "use strict"
 
+// When the DOM nodes are loaded:
+// Attach event listener to #sub button, which is used to do PUT request
+// and trigger css effects of HTML elements
 $(document).ready(function () {
+  
   const foo = document.getElementById("dataItems");
   Sortable.create(foo, {
     group: 'foo',
@@ -10,7 +14,6 @@ $(document).ready(function () {
 
   const url = window.location.pathname.split('/')
   const id = url[url.length - 1];
-
 
   $("#result_link").on("click", function () {
     window.location.href = "/admin/poll/" + id;

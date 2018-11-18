@@ -1,3 +1,7 @@
+// Export a PUT route of endpoint /sub/poll/:id
+// Insert user_id and user_name to table 'names'
+
+
 const express = require('express');
 const router = express.Router();
 

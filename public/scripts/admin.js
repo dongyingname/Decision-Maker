@@ -1,5 +1,9 @@
 "use strict";
 
+
+//take data object from the route and render them into pie-chart
+//on the admin page using hard-coded colors
+
 function createChart(data) {
   var labelsArr = [];
   var dataArr = [];

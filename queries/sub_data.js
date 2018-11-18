@@ -1,11 +1,10 @@
-// const express = require('express');
-// const router = express.Router();
-//
-//get the value of each options name and value
-//go through each of them
-//where the name is equal to option
+
 
 module.exports = (knex) => {
+
+  // Takes poll's id from reqest body and gether all the data from 
+  // database under that id. 
+  // The data is then carried to the webpage by templateVars
   return (req, res) => {
     const id1 = req.params.id;
     const decisions = [];

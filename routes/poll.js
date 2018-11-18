@@ -1,5 +1,5 @@
 "use strict";
-
+//acquire express module and send-email API
 const express = require('express');
 const router = express.Router();
 const sendMail = require('../public/scripts/email.js');
@@ -21,12 +21,13 @@ module.exports = (knex) => {
     res.render("index.ejs");
   });
 
-  // create new poll link
+  // Submission page: user rank the decisions by drag and drop
   router.get("/poll/create", (req, res) => {
     res.render("create.ejs");
   });
 
-  // display links
+  // User is directed to this page after welcome page.
+  // Links to submission page and administration page.
   router.get("/poll/:id", (req, res) => {
     let templateVars = {
       id: req.params.id
@@ -39,8 +40,13 @@ module.exports = (knex) => {
     subq(req, res);
   });
 
-  // sending data to db for new poll
+  //POST route to endpoint "/poll/:id"
   router.post("/poll/:id", (req, res) => {
+
+    // Insert values that are passed from the form of create page
+    // into tables using knex. An email is send by chaining that
+    // API in knex commands to notify the creater the poll is 
+    // created
     knex('owner').insert({
         email: req.body.email
       }).returning(['id'])
@@ -66,8 +72,12 @@ module.exports = (knex) => {
             if (req.body.name_required) {
               if (req.body.name_required == "true") {
                 return knex('poll')
-                .update({ name_required: true })
-                .where({ id: poll[0].id });
+                  .update({
+                    name_required: true
+                  })
+                  .where({
+                    id: poll[0].id
+                  });
               }
             }
           })
@@ -84,6 +94,7 @@ module.exports = (knex) => {
 
   //route that handles put request to endpoint /sub/poll/:id
   router.put("/sub/poll/:id", (req, res) => {
+
     const {
       points,
       decs,
