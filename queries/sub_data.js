@@ -24,11 +24,7 @@ module.exports = (knex) => {
           id: id1
         });
       })
-
       .then((poll) => {
-        console.log("description",poll[0].description);
-        console.log("question",poll[0].question);
-
         // console.log(poll[0].name_required);
         const templateVars = {
           decisions: decisions,
