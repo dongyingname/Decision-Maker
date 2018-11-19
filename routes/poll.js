@@ -2,11 +2,12 @@
 //acquire express module and send-email API
 const express = require('express');
 const router = express.Router();
-const sendMail = require('../public/scripts/email.js');
+
 
 module.exports = (knex) => {
   const subq = require("../queries/sub_data")(knex);
-
+  const adminq = require("../queries/admin_data")(knex);
+  const createq = require("../queries/create_data")(knex);
   // welcome page
   router.get("/", (req, res) => {
     res.render("index.ejs");
@@ -17,39 +18,6 @@ module.exports = (knex) => {
     res.render("create.ejs");
   });
 
-  // Admin page
-  router.get('/admin/poll/:id', (req, res) => {
-    let users = [];
-    const templateVars = {};
-    const id = req.params.id;
-    knex('user_name').select("user_name", "poll_id")
-      .where('poll_id', id)
-      .then((user_names) => {
-        console.log(user_names);
-        return Promise.all(
-          user_names.map(function (user_name) {
-            users.push(user_name.user_name);
-          })
-        );
-      })
-      .then(function () {
-        knex('option').select('name', 'value')
-          .where('poll_id', id)
-          .then((name_values) => {
-            return knex('poll').select('question')
-              .where('id', id)
-              .then((question) => {
-                templateVars["user_names"] = users;
-                templateVars["question"] = question[0].question;
-                templateVars["name_values"] = JSON.stringify(name_values);
-                console.log("final", templateVars.user_names);
-                res.render('admin.ejs', templateVars);
-                users = [];
-              });
-          })
-      })
-      .catch(err => console.error('ERROR', err));
-  });
 
   // User is directed to this page after welcome page.
   // Links to submission page and administration page.
@@ -65,56 +33,15 @@ module.exports = (knex) => {
     subq(req, res);
   });
 
+  // Admin page
+  router.get('/admin/poll/:id', (req, res) => {
+    adminq(req, res);
+  });
+
+
   //POST route to endpoint "/poll/:id"
   router.post("/poll/:id", (req, res) => {
-
-    // Insert values that are passed from the form of create page
-    // into tables using knex. An email is send by chaining that
-    // API in knex commands to notify the creater the poll is 
-    // created
-    knex('owner').insert({
-        email: req.body.email
-      }).returning(['id'])
-      .then((user) => {
-        return knex('poll').insert({
-            email_id: user[0].id,
-            question: req.body.poll_title,
-            description: req.body.description,
-          })
-          .returning(['id']);
-      })
-
-      .then((poll) => {
-        return Promise.all(
-            req.body.decision.map(function (decision) {
-              return knex('option').insert({
-                poll_id: poll[0].id,
-                name: decision
-              });
-            })
-          )
-          .then(() => {
-            if (req.body.name_required) {
-              if (req.body.name_required == "true") {
-                return knex('poll')
-                  .update({
-                    name_required: true
-                  })
-                  .where({
-                    id: poll[0].id
-                  });
-              }
-            }
-          })
-          .then(function () {
-            const id = poll[0].id;
-
-            sendMail.sendCreateEmail(req.body.email, poll[0].id);
-
-            res.redirect('/poll/' + id);
-          })
-          .catch(err => console.log('ERROR', err));
-      });
+    createq(req,res);
   });
 
   //route that handles put request to endpoint /sub/poll/:id
