@@ -1,7 +1,7 @@
 module.exports = (knex) => {
 
-  // Takes poll's id from reqest body and gether all the data from 
-  // database under that id. 
+  // Takes poll's id from reqest body and gether all the data from
+  // database under that id.
   // The data is then carried to the webpage by templateVars
   return (req, res) => {
     let users = [];
@@ -24,14 +24,15 @@ module.exports = (knex) => {
             return knex('poll').select('question')
               .where('id', id)
               .then((question) => {
-                templateVars["user_names"] = users;
-                templateVars["question"] = question[0].question;
-                templateVars["name_values"] = JSON.stringify(name_values);
+                templateVars['id'] = id;
+                templateVars['user_names'] = users;
+                templateVars['question'] = question[0].question;
+                templateVars['name_values'] = JSON.stringify(name_values);
                 console.log("final", templateVars.user_names);
                 res.render('admin.ejs', templateVars);
                 users = [];
               });
-          })
+          });
       })
       .catch(err => console.error('ERROR', err));
   };

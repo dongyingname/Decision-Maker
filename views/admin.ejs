@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
+
   <title>Decision Maker: Results</title>
   <% include partials/_header %>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
@@ -21,6 +21,7 @@
 <body>
   <div class="titleDiv">
     <h1 class="title" name="question"><%= question %></h1>
+    <button class="sub" type="button" onclick="window.location.href='/sub/poll/<%= id %>'">Submissions page</button>
   </div>
   <div class="container">
     <canvas id="myChart"></canvas>

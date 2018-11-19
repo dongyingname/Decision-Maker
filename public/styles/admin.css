@@ -24,3 +24,14 @@ body {
 .names {
   list-style-type: none;
 }
+.sub {
+  display: block;
+  margin: 0 auto;
+  min-width: inherit;
+  border: solid;
+  border-color: #afafaf;
+  border-radius: 15px;
+}
+.sub:hover {
+  opacity: .7;
+}
