@@ -1,9 +1,7 @@
-const sendMail = require('../public/scripts/email.js');
+const sendMail = require('../routes/route_scripts/email.js');
 
 module.exports = (knex) => {
-
   return (req, res) => {
-
     const {
       points,
       decs,

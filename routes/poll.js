@@ -1,5 +1,5 @@
 "use strict";
-//acquire express module and send-email API
+//acquire express module
 const express = require('express');
 const router = express.Router();
 

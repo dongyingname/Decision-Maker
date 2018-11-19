@@ -1,4 +1,4 @@
-const sendMail = require('../public/scripts/email.js');
+const sendMail = require('../routes/route_scripts/email.js');
 module.exports = (knex) => {
   // Insert values that are passed from the form of create page
   // into tables using knex. An email is send by chaining that
