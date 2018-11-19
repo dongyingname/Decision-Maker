@@ -41,7 +41,7 @@
   background-size: 400% 400%;
   animation: BackgroundGradient 20s ease infinite;
 }
-
-
-
-
+img {
+  display: block;
+  margin: 2% auto;
+}
