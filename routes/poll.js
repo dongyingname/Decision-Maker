@@ -7,15 +7,6 @@ const sendMail = require('../public/scripts/email.js');
 module.exports = (knex) => {
   const subq = require("../queries/sub_data")(knex);
 
-  // router.get("/", (req, res) => {
-  //   knex
-  //     .select("*")
-  //     .from("users")
-  //     .then((results) => {
-  //       res.json(results);
-  //   });
-  // });
-
   // welcome page
   router.get("/", (req, res) => {
     res.render("index.ejs");
