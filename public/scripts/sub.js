@@ -43,7 +43,7 @@ $(document).ready(function () {
       },
       complete: function () {
         $("#success").show("slow");
-        $(".list").hide();
+        $(".container").hide();
         $("#sub").hide();
       },
 
