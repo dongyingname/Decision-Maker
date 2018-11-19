@@ -68,5 +68,6 @@ $(document).ready(function () {
   dragdrop();
   redirect();
   put();
+  $('.user_name').trigger('focus');
 
 });
