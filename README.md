@@ -28,10 +28,11 @@ This is a web app that allows groups of friends to vote on a preferred choice.
 - sortablejs
 
 ## Getting Started
+- to install all the dependencies.
+```
+$npm install 
+```
 - To run the web server run the following command in terminal:
-```
-$npm install to install all the dependencies.
-```
 ```
 $npm run local 
 ```
