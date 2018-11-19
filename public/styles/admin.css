@@ -18,3 +18,9 @@ body {
 .title {
   text-align: center;
 }
+.voters {
+  margin-left: 20px;
+}
+.names {
+  list-style-type: none;
+}

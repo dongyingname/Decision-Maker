@@ -4,12 +4,12 @@
 // Attach event listener to #sub button, which is used to do PUT request
 // and trigger css effects of HTML elements
 $(document).ready(function () {
-  
-  const foo = document.getElementById("dataItems");
+
+  const foo = document.getElementById("data_items");
   Sortable.create(foo, {
     group: 'foo',
     animation: 100,
-    chosenClass: "sortable-chosen"
+    chosenClass: "sortable_chosen"
   });
 
   const url = window.location.pathname.split('/')
@@ -23,7 +23,7 @@ $(document).ready(function () {
   $("#sub").on('click', function (e) {
     const user_name = $("#user_name").val();
     e.preventDefault();
-    const lists = $("#dataItems").find($(".listItem"));
+    const lists = $("#data_items").find($(".list_item"));
     const points = [];
     const decs = [];
 

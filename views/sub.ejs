@@ -14,11 +14,7 @@
   <script type="text/javascript" src="./queries/name_data.js"></script>
   <script src="//rubaxa.github.io/Sortable/Sortable.js"></script>
 </head>
-
 <body>
-
-
-
   <div class="details">
     <h2 class="title"><%= question %></h2>
     <h4 class="description"><%= description %></h4>
@@ -28,21 +24,22 @@
     <div>You may see the ranking result in the following link: </div>
     <button id="result_link">Poll Result</button>
   </section>
+  <section class="container">
+    <div class="rank_choice">Rank your preference from highest to lowest</div>
   <section class="list">
     <div class="a1">
-      <ul id="dataItems">
+      <ul id="data_items">
         <% for (let i =0; i < decisions.length; i++){ %>
-        <li class="listItem"><%= decisions[i] %></li>
+        <li class="list_item"><%= decisions[i] %></li>
         <% } %>
       </ul>
     </div>
   </section>
-  <% if (name_required) { %>
-  <textarea id="user_name" name="user_name" class="user_name"placeholder="Your Name Here (Required)" required></textarea>
-  <% } %>
-  <button id="sub">Submit</button>
-
-
+    <% if (name_required) { %>
+    <textarea id="user_name" name="user_name" class="user_name"placeholder="Your Name Here (Required)" required></textarea>
+    <% } %>
+    <div/>
+    <button id="sub">Submit</button>
+  </section>
 </body>
-
 </html>
