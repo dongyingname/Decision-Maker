@@ -67,6 +67,8 @@ function createChart(data) {
   return pollChart;
 }
 
+// When DOM nodes are loaded event handler will hide $('.voters')
+// if no name is required. 
 $(document).ready(function () {
   if (!$('.user_names').text())
     $('.voters').hide();
