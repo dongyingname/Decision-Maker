@@ -1,4 +1,3 @@
-
 const sendMail = require('../public/scripts/email.js');
 module.exports = (knex) => {
   // Insert values that are passed from the form of create page
