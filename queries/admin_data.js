@@ -28,7 +28,6 @@ module.exports = (knex) => {
                 templateVars['user_names'] = users;
                 templateVars['question'] = question[0].question;
                 templateVars['name_values'] = JSON.stringify(name_values);
-                console.log("final", templateVars.user_names);
                 res.render('admin.ejs', templateVars);
                 users = [];
               });

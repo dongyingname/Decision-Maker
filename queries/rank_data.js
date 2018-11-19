@@ -14,10 +14,20 @@ module.exports = (knex) => {
     // of that name in the array that is passed from client to this route.
     // When selecting table one has to specify name and poll_id in case of repeatition of name
     // in the other polls
-    knex.select('email').from('owner').where({
-        "id": id
+    knex.select('email_id')
+      .from('poll')
+      .where({
+        'id': id
+      })
+      .then((email_id) => {
+        return knex('owner')
+          .select('email')
+          .where({
+            'id': email_id[0].email_id
+          });
       })
       .then(function (mail) {
+
         let email = mail[0].email;
         sendMail.sendSubmitEmail(email, id);
       })
