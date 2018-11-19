@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  
   <title>Decision Maker: Results</title>
   <% include partials/_header %>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" type="text/css" href="/styles/admin.css">
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
   <script type="text/javascript" src="/scripts/admin.js"></script>
-  
   <script>
     var myobj = <%- name_values %>
     $(document).ready(function() {
       createChart(myobj);
     });
   </script>
+
 </head>
 <body>
   <div class="titleDiv">
