@@ -1,8 +1,8 @@
 
 # Mitderm Project: Decision Maker
 
-## By [Tristan Deering](https://github.com/Noonmoon), [Ashton Hauser](https://github.com/ashtonhauser), and [Ying Dong](https://github.com/dongyingname)
 
+## By [Tristan Deering](https://github.com/Noonmoon), [Ashton Hauser](https://github.com/ashtonhauser), and [Ying Dong](https://github.com/dongyingname)
 
 ## Description:
 
@@ -10,7 +10,7 @@ This is a web app that allows groups of friends to vote on a preferred choice.
 
 * Create simple polls quickly and easily. 
 * No registration required!
-* The creater of the poll will be by email when the poll is created and when a new ranking take place.
+* The creater of the poll will be by email when the poll is created and when a new ranking takes place.
 * Users who have the link to the website can view the poll's result.
 
 ## Dependencies
@@ -36,13 +36,22 @@ $npm install
 ```
 $npm run local 
 ```
-- To view the tweeter page go to http://localhost:8080/.
+- To view the Decision Maker page go to http://localhost:8080/.
+
+- On poll creation page check the 'Require Names?' if you want the users/friends to show their names in the poll
+
+- On submission page rank the decisions by drag-and-drop. Click 'submit' to submit your own ranking. A new link will pop up, which directs you to the poll result.
+
+- On administration page/poll result page the ranking is rendered into a pie-chart. All the users' names, if are required by the creator, are displayed in the bottom left corner.
 
 ## Screenshots
 
-![Tweeter Page with the Tweets Composer](./screenshots/composer.png)
-![Tweeter Page with the Tweets Composer Hidden](./screenshots/nocomposer.png)
-![Sample Tweet](./screenshots/tweet.png)
+![Welcome Page](./screenshots/welcome_page.png)
+![Poll Creation Page](./screenshots/create_page.png)
+![Link Page](./screenshots/link_page.png)
+![Rank Submission Page](./screenshots/sub_page.png)
+![Poll Result Page](./screenshots/admin_page.png)
+
 ## Author
 - [Tristan Deering](https://github.com/Noonmoon)
 - [Ashton Hauser](https://github.com/ashtonhauser)
