@@ -18,9 +18,9 @@ function createChart(data) {
     data: {
       labels: labelsArr,
       datasets: [{
-        label:'value',
+        label: 'value',
         data: dataArr,
-        backgroundColor:[
+        backgroundColor: [
           '#7423B2',
           '#1967C6',
           '#6B2AB4',
@@ -47,22 +47,27 @@ function createChart(data) {
       }]
     },
     options: {
-      title:{
-        display:true,
-        text:'Current Poll Results',
+      title: {
+        display: true,
+        text: 'Current Poll Results',
         fontSize: 25,
         fontColor: 'black'
       },
-      animation:{
+      animation: {
         duration: 2000
       },
-      legend:{
-        labels:{
+      legend: {
+        labels: {
           fontSize: 17,
           fontColor: 'black'
         }
       }
     }
   });
-return pollChart;
+  return pollChart;
 }
+
+$(document).ready(function () {
+  if (!$('.user_names').text())
+    $('.voters').hide();
+})
