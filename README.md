@@ -1,7 +1,7 @@
 
 # Mitderm Project: Decision Maker
 
-## Contributors: [Tristan Deering](https://github.com/Noonmoon), [Ashton Hauser](https://github.com/ashtonhauser), and [Ying Dong](https://github.com/dongyingname)
+## Main Contributors: [Tristan Deering](https://github.com/Noonmoon), [Ashton Hauser](https://github.com/ashtonhauser), and [Ying Dong](https://github.com/dongyingname)
 
 ## Description:
 
