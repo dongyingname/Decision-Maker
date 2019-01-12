@@ -1,4 +1,3 @@
-
 # Mitderm Project: Decision Maker
 
 ## Main Contributors: [Tristan Deering](https://github.com/Noonmoon), [Ashton Hauser](https://github.com/ashtonhauser), and [Ying Dong](https://github.com/dongyingname)
@@ -7,10 +6,10 @@
 
 This is a web app that allows groups of friends to create a poll of decisions and to vote on their preferred choices.
 
-* Create simple polls quickly and easily. 
-* No registration required!
-* The creater of the poll will be notified by an email when the poll is created or when a new ranking of decisions takes place.
-* Users who have the link to the website can view the poll's result.
+- Create simple polls quickly and easily.
+- No registration required!
+- The creator of the poll will be notified by an email when the poll is created or when a new ranking of decisions takes place.
+- Users who have the link to the website can view the poll's result.
 
 ## Dependencies
 
@@ -30,13 +29,17 @@ This is a web app that allows groups of friends to create a poll of decisions an
 ## Getting Started
 
 - to install all the dependencies.
+
 ```
-$npm install 
+$npm install
 ```
+
 - To run the web server run the following command in terminal:
+
 ```
-$npm run local 
+$npm run local
 ```
+
 - To view the Decision Maker page go to http://localhost:8080/.
 
 - On poll creation page check the 'Require Names?' if you want your friends to show their names .
@@ -54,7 +57,7 @@ $npm run local
 ![Poll Result Page](./screenshots/admin_page.png)
 
 ## Contributors' Information
+
 - [Tristan Deering](https://github.com/Noonmoon)
 - [Ashton Hauser](https://github.com/ashtonhauser)
 - [Ying Dong](https://github.com/dongyingname)
-
